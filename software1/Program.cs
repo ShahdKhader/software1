@@ -14,6 +14,7 @@ namespace software1
         [STAThread]
         static void Main()
         {
+            //shahd
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());

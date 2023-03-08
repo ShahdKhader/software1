@@ -1,6 +1,11 @@
-.vbox-background-center{
+.vbox_background_center{
 -fx-background-image:url("signin1.jpg")
 }
-.vbox-background-right{
+.vbox_background_right{
 -fx-background-image:url("signin2.jpg")
+}
+
+
+public class main extends Application  {
+
 }

@@ -1,14 +1,165 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.software.Screen2"
-            prefHeight="400.0" prefWidth="600.0">
 
-</AnchorPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="780.0" style="-fx-background-color: #f8f2e6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <right>
+      <VBox prefWidth="332.0" styleClass="vbox_background_center" stylesheets="@accessories/login.css" BorderPane.alignment="CENTER">
+         <children>
+            <StackPane prefHeight="559.0" prefWidth="332.0">
+               <children>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <HBox alignment="TOP_CENTER" prefHeight="75.0" prefWidth="332.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="72.0" prefWidth="333.0" text="Insert order" textFill="#b04f4f">
+                                 <font>
+                                    <Font name="System Bold Italic" size="36.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutX="6.0" layoutY="72.0" prefHeight="57.0" prefWidth="322.0">
+                           <children>
+                              <Label prefHeight="72.0" prefWidth="104.0" text="Name " textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <TextField prefHeight="46.0" prefWidth="210.0" promptText="Enter your Name" style="-fx-background-radius: 50;" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutY="125.0" prefHeight="62.0" prefWidth="330.0">
+                           <children>
+                              <Label text="Quantity" textFill="#efeaea">
+                                 <font>
+                                    <Font name="System Bold Italic" size="24.0" />
+                                 </font>
+                              </Label>
+                              <TextField prefHeight="46.0" prefWidth="210.0" promptText="Quantity" style="-fx-background-radius: 50;" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" layoutY="188.0" prefHeight="51.0" prefWidth="330.0">
+                           <children>
+                              <Label text="Size        " textFill="#efeaea">
+                                 <font>
+                                    <Font name="System Bold Italic" size="24.0" />
+                                 </font>
+                              </Label>
+                              <TextField prefHeight="46.0" prefWidth="210.0" promptText="Size" style="-fx-background-radius: 50;" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="TOP_CENTER" layoutY="245.0" prefHeight="70.0" prefWidth="332.0">
+                           <children>
+                              <Label text="Color      " textFill="#efeaea">
+                                 <font>
+                                    <Font name="System Bold Italic" size="24.0" />
+                                 </font>
+                              </Label>
+                              <TextField prefHeight="46.0" prefWidth="210.0" promptText="Color" style="-fx-background-radius: 50;" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="TOP_CENTER" layoutY="302.0" prefHeight="74.0" prefWidth="177.0">
+                           <children>
+                              <Label text="Picture     " textFill="#efeaea">
+                                 <font>
+                                    <Font name="System Bold Italic" size="24.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="65.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@accessories/OIP%20(1).jpeg" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="187.0" layoutY="303.0" prefHeight="72.0" prefWidth="140.0">
+                           <children>
+                              <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="94.0" style="-fx-background-radius: 50;" text="Import Picture" textFill="#ed6637" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 50;" />
+               </children>
+            </StackPane>
+         </children>
+      </VBox>
+   </right>
+   <center>
+      <VBox prefWidth="449.0" styleClass="vbox_background_right" stylesheets="@accessories/login.css" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label contentDisplay="CENTER" prefHeight="97.0" prefWidth="486.0" text="       SHINING CARPETS" textAlignment="CENTER" textFill="#ed6637">
+                     <font>
+                        <Font name="Arial Bold Italic" size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="50.0" prefWidth="448.0">
+               <children>
+                  <ImageView fitHeight="42.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@accessories/menu_FILL0_wght400_GRAD0_opsz48%20(1).png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="42.0" prefWidth="95.0" text="MENU" textFill="#ae6565">
+                     <font>
+                        <Font name="Courier New Bold" size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="TOP_CENTER" prefHeight="60.0" prefWidth="448.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="58.0" prefWidth="266.0" style="-fx-background-radius: 50;" text="Insert Order">
+                     <font>
+                        <Font name="System Bold Italic" size="24.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="TOP_CENTER" prefHeight="59.0" prefWidth="448.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="58.0" prefWidth="266.0" style="-fx-background-radius: 50;" text="Invoice">
+                     <font>
+                        <Font name="System Bold Italic" size="24.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="TOP_CENTER" prefHeight="59.0" prefWidth="448.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="58.0" prefWidth="266.0" style="-fx-background-radius: 50;" text="Reports">
+                     <font>
+                        <Font name="System Bold Italic" size="24.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="58.0" prefWidth="266.0" style="-fx-background-radius: 50;" text="Setting">
+                     <font>
+                        <Font name="System Bold Italic" size="24.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

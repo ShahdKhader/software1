@@ -7,25 +7,8 @@ import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
 
-public class Screen2 implements Initializable {
+public class Screen2 {
 
-
-    @FXML
-    private ImageView menu ;
-
-    @FXML
-    private AnchorPane Pane1, menuPane2;
-
-
-
-    @java.lang.Override
-    public void initialize(java.net.URL url, java.util.ResourceBundle resourceBundle) {
-        menu.setOnMouseClicked(event -> {
-            Pane1.setVisible(true);
-
-        });
-        Pane1.setVisible(false);
-    }
 
 
 

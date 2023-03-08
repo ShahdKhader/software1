@@ -1,11 +1,7 @@
-.vbox_background_center{
--fx-background-image:url("signin1.jpg")
+
+.back{
+-fx-background-image:url("n.jpg");
 }
-.vbox_background_right{
--fx-background-image:url("signin2.jpg")
-}
-
-
-public class main extends Application  {
-
+.bubble{
+-fx-background-image:url("bubble3.jpg");
 }

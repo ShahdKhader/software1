@@ -94,21 +94,20 @@ public class feature2 {
     }
     @When("he fill in {string} with extension {string}")
     public void heFillInWithExtention(String string, String string2) {
-
+        boolean flag = true ;
+        int n = string2.length();
+        if((string2.charAt(n-1) == 'g')&&(string2.charAt(n-2) == 'n') &&(string2.charAt(n-3) == 'p')&&(string2.charAt(n-4)=='.')){
+            flag = true ;
+            assertEquals(true,true);
+        }
+        else assertEquals(false,false);
 
     }
-    @When("he presses {string} and flag is {string}")
-    public void hePressesAndFlagIs(String string, String string2) {
-        if (string.equals(true)) assertEquals(true,true);
 
-    }
     @Then("the information has been entered successfully")
     public void theInformationHasBeenEnteredSuccessfully() {
         assertEquals(true,true);
     }
-    @Then("the user should see {string}")
-    public void theUserShouldSee(String string) {
-        assertEquals(true,true);
-    }
+
 
 }

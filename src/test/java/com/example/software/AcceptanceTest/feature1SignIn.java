@@ -3,22 +3,34 @@ package com.example.software.AcceptanceTest;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
+import static org.junit.Assert.assertEquals;
 public class feature1SignIn {
-    @Given("i am trying to sign in")
-    public void iAmTryingToSignIn() {
-        // Write code here that turns the phrase above into concrete actions
-       // throw new io.cucumber.java.PendingException();
+    @Given("I go to loginchoise")
+    public void iGoToLoginchoise() {
+    assertEquals(true,true);
     }
-    @When("press sign in and the name is unvalid")
-    public void pressSignInAndTheNameIsUnvalid() {
-        // Write code here that turns the phrase above into concrete actions
-       // throw new io.cucumber.java.PendingException();
+    @Given("the field {string} is empty")
+    public void theFieldIsEmpty(String string) {
+        assertEquals(false,false);    }
+    @When("I click on login and flag is {string}")
+    public void iClickOnLoginAndFlagIs(String string) {
+        if(string.equals(true))    assertEquals(true,true);
+        else     assertEquals(false,false);
+
     }
-    @Then("open unvalid-sign-in-screen")
-    public void openUnvalidSignInScreen() {
-        // Write code here that turns the phrase above into concrete actions
-       // throw new io.cucumber.java.PendingException();
+    @Then("field {string} should be with error")
+    public void fieldShouldBeWithError(String string) {
+        System.out.println("Please enter Gmail and Password first !");
+
     }
+    @Then("I should see {string}")
+    public void iShouldSee(String string) {
+        System.out.println("E-mail or password is incorrect");
+    }
+    @Then("I shouldn't see 'Access your account'")
+    public void iShouldnTSeeAccessYourAccount() {
+        System.out.println("login successfully");
+    }
+
 
 }

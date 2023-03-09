@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="750.0" styleClass="back" stylesheets="@accessories/screen2.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="750.0" styleClass="back" stylesheets="@accessories/screen2.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.software.menuController">
    <children>
       <ImageView fitHeight="91.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -35,7 +35,7 @@
             <Image url="@accessories/Bubble3.png" />
          </image>
       </ImageView>
-      <Label layoutX="227.0" layoutY="180.0" prefHeight="22.0" prefWidth="79.0" text="Insert Order" textFill="#bc4e2a">
+      <Label fx:id="insertOrder" layoutX="227.0" layoutY="180.0" onMouseClicked="#insrtOrderClicked" prefHeight="22.0" prefWidth="79.0" text="Insert Order" textFill="#bc4e2a">
          <font>
             <Font name="System Bold Italic" size="14.0" />
          </font>
@@ -45,17 +45,17 @@
             <Image url="@accessories/Bubble3.png" />
          </image>
       </ImageView>
-      <Label layoutX="432.0" layoutY="180.0" prefHeight="22.0" prefWidth="58.0" text="Invoice" textFill="#bc4e2a">
+      <Label fx:id="invoice" layoutX="432.0" layoutY="180.0" onMouseClicked="#InvoiceClicked" prefHeight="22.0" prefWidth="58.0" text="Invoice" textFill="#bc4e2a">
          <font>
             <Font name="System Bold Italic" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="438.0" layoutY="348.0" prefHeight="30.0" prefWidth="72.0" text="Setting" textFill="#bc4e2a">
+      <Label fx:id="setting" layoutX="438.0" layoutY="348.0" onMouseClicked="#settingClicked" prefHeight="30.0" prefWidth="72.0" text="Setting" textFill="#bc4e2a">
          <font>
             <Font name="System Bold Italic" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="244.0" layoutY="348.0" prefHeight="30.0" prefWidth="79.0" text="Report" textFill="#bc4e2a">
+      <Label fx:id="report" layoutX="244.0" layoutY="348.0" onMouseClicked="#ReportClicked" prefHeight="30.0" prefWidth="79.0" text="Report" textFill="#bc4e2a">
          <font>
             <Font name="System Bold Italic" size="14.0" />
          </font>

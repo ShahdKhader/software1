@@ -1,7 +1,7 @@
 module com.example.software {
     requires javafx.controls;
     requires javafx.fxml;
-
+    requires AnimateFX;
 
     requires java.naming;
     requires com.oracle.database.jdbc;

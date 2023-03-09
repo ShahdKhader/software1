@@ -103,11 +103,9 @@ public class feature2 {
         else assertEquals(false,false);
 
     }
-
     @Then("the information has been entered successfully")
     public void theInformationHasBeenEnteredSuccessfully() {
         assertEquals(true,true);
     }
-
 
 }

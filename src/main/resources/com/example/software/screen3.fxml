@@ -25,7 +25,7 @@
             <Insets left="60.0" />
          </opaqueInsets>
       </Label>
-      <Label layoutX="292.0" layoutY="71.0" prefHeight="51.0" prefWidth="182.0" text="Invoice" textAlignment="CENTER" textFill="#bc4e2a">
+      <Label layoutX="308.0" layoutY="106.0" prefHeight="60.0" prefWidth="229.0" text="Invoice" textAlignment="CENTER" textFill="#bc4e2a">
          <font>
             <Font name="System Bold Italic" size="36.0" />
          </font>
@@ -42,7 +42,7 @@
                         <Font name="System Bold Italic" size="18.0" />
                      </font>
                   </Label>
-                  <TextField prefHeight="40.0" prefWidth="260.0" promptText="Name" style="-fx-background-radius: 50;">
+                  <TextField fx:id="Name" prefHeight="40.0" prefWidth="260.0" promptText="Name" style="-fx-background-radius: 50;">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -59,7 +59,7 @@
                         <Font name="System Bold Italic" size="18.0" />
                      </font>
                   </Label>
-                  <TextField prefHeight="34.0" prefWidth="260.0" promptText="Quantity" style="-fx-background-radius: 50;">
+                  <TextField fx:id="quantity" prefHeight="34.0" prefWidth="260.0" promptText="Quantity" style="-fx-background-radius: 50;">
                      <padding>
                         <Insets bottom="2.0" top="2.0" />
                      </padding>
@@ -79,7 +79,7 @@
                         <Font name="System Bold Italic" size="18.0" />
                      </font>
                   </Label>
-                  <TextField prefHeight="40.0" prefWidth="260.0" promptText="Size" style="-fx-background-radius: 50;" />
+                  <TextField fx:id="size" prefHeight="40.0" prefWidth="260.0" promptText="Size" style="-fx-background-radius: 50;" />
                </children>
                <padding>
                   <Insets bottom="2.0" top="2.0" />
@@ -92,7 +92,7 @@
                         <Font name="System Bold Italic" size="18.0" />
                      </font>
                   </Label>
-                  <TextField prefHeight="40.0" prefWidth="260.0" promptText="Color" style="-fx-background-radius: 50;" />
+                  <TextField fx:id="color" prefHeight="40.0" prefWidth="260.0" promptText="Color" style="-fx-background-radius: 50;" />
                </children>
                <padding>
                   <Insets bottom="2.0" top="2.0" />
@@ -105,7 +105,7 @@
                         <Font name="System Bold Italic" size="18.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="55.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="picture" fitHeight="55.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@accessories/add_photo_alternate_FILL0_wght400_GRAD0_opsz48.png" />
                      </image>
@@ -120,16 +120,5 @@
             </HBox>
          </children>
       </VBox>
-      <Label layoutX="119.0" layoutY="159.0" prefHeight="34.0" prefWidth="137.0" text="Phone Number" textFill="#bc4e2a">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <TextField layoutX="247.0" layoutY="160.0" prefHeight="31.0" prefWidth="225.0" promptText="Enter your Phone Number" />
-      <ImageView fitHeight="40.0" fitWidth="45.0" layoutX="485.0" layoutY="156.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@accessories/manage_search_FILL0_wght400_GRAD0_opsz48.png" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>

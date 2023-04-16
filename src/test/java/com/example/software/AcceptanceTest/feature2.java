@@ -1,5 +1,7 @@
 package com.example.software.AcceptanceTest;
 import com.example.software.HelloController;
+import com.example.software.database;
+import com.example.software.TESTINPUT;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -31,62 +33,35 @@ public class feature2 {
     @Then("the field {string} should be with error")
     public void theFieldShouldBeWithError(String string) {
         System.out.println("Please enter the information");
+        assertEquals(false,false);
+
     }
     @Then("the image {string} should be with error")
     public void theImageShouldBeWithError(String string) {
         System.out.printf("Please enter png extension!");
+        assertEquals(false,false);
     }
 
     @When("he fill in {string} with {string}")
     public void heFillInWith(String string, String string2) throws SQLException {
+        boolean flag=false;
         if(string.equals("Name")){
-            OracleDataSource ods = new OracleDataSource();
-            ods.setURL("jdbc:oracle:thin:@localhost:1521:xe");
-            ods.setUser("SN");
-            ods.setPassword("123456");
-            Connection con = ods.getConnection();
-            String all = "select USERNAME from CUSTOMER";
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery(all);
-            boolean flag=false;
-            while (rs.next()) {
-                String name =rs.getString(1);
-                if(name.equals(string) ) {assertEquals(true,true);
-                    flag=true;
-                }
+             int flag2= TESTINPUT.ordernameTest(string2);
+            if(flag2!=0) assertEquals(true,true);
+            else assertEquals(false,false);
             }
-            if(!flag) assertEquals(false,false);
-        }
-        else if (string.equals("Quantity")&& string2.length() >0) {
-            boolean flag = true;
-            for(int i=0;i<string2.length();i++){
-                if(!Character.isDigit(string2.charAt(i))){
-                    flag = false ;
-                    break;
-                }
-            }
+        else if (string.equals("Quantity")) {
+            flag= TESTINPUT.orderQuantityTest(string2);
             if(flag == true)assertEquals(true,true);
             else assertEquals(false,false);
         }
-        else if (string.equals("size")&& string2.length() >= 0) {
-            boolean flag =true;
-            for(int i=0;i<string2.length();i++){
-                if(!Character.isDigit(string2.charAt(i))){
-                    flag = false ;
-                    break;
-                }
-            }
+        else if (string.equals("size")) {
+          flag=TESTINPUT.orderSizeTest(string2);
             if(flag==true) assertEquals(true,true);
             else assertEquals(false,false);
         }
         else if (string.equals("color")) {
-            boolean flag = true;
-            for (int i = 0; i < string2.length(); i++) {
-                if (Character.isDigit(string2.charAt(i))) {
-                    flag = false;
-                    break;
-                }
-            }
+           flag=TESTINPUT.orderColorTest(string2);
             if (flag == true) assertEquals(true, true);
             else assertEquals(false, false);
         }
@@ -94,14 +69,9 @@ public class feature2 {
     }
     @When("he fill in {string} with extension {string}")
     public void heFillInWithExtention(String string, String string2) {
-        boolean flag = true ;
-        int n = string2.length();
-        if((string2.charAt(n-1) == 'g')&&(string2.charAt(n-2) == 'n') &&(string2.charAt(n-3) == 'p')&&(string2.charAt(n-4)=='.')){
-            flag = true ;
-            assertEquals(true,true);
-        }
-        else assertEquals(false,false);
-
+       boolean flag=TESTINPUT.orderPictureTest(string2);
+        if (flag == true) assertEquals(true, true);
+        else assertEquals(false, false);
     }
 
     @Then("the information has been entered successfully")

@@ -36,7 +36,6 @@ public class database {
             Connection con = ods.getConnection();
             Statement stmt = con.createStatement();
             stmt.executeUpdate(string);
-
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

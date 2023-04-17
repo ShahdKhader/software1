@@ -27,6 +27,7 @@ public class database {
             throw new RuntimeException(e);
         }
     }
+
     public static void insertIntoDatabase(String string) {
         try {
             OracleDataSource ods = new OracleDataSource();
@@ -40,4 +41,5 @@ public class database {
             throw new RuntimeException(e);
         }
     }
+
 }

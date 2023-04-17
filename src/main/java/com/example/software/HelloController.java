@@ -20,7 +20,7 @@ import java.sql.Statement;
 public class HelloController {
 
     @FXML
-    private TextField gmailLogIn;
+    public TextField gmailLogIn;
 
     @FXML
     private Button login1;
@@ -31,12 +31,14 @@ public class HelloController {
     @FXML
     private Button signUp;
 
-
+    @FXML
+    public static String z;
     @FXML
     void login1Clicked(ActionEvent event) {
+
         try {
             int flag=0;
-            ResultSet rs = database.createDatabase("select GMAIL,PASSWORD from ADMIN");
+            ResultSet rs = database.createDatabase("select GMAIL,PASSWORD from CUSTOMER");
             while (rs.next()) {
                 String gmail = rs.getString(1);
                 String Password = rs.getString(2);
@@ -45,7 +47,18 @@ public class HelloController {
                     JOptionPane.showMessageDialog(null, "Incorrect Password");
                     break;
                 } else if (gmailLogIn.getText().equals(gmail) && passwordLogIn.getText().equals(Password)) {
-
+                    z=gmailLogIn.getText();
+                    if(gmailLogIn.getText().equals("admin")&&passwordLogIn.getText().equals("admin")){
+                        FXMLLoader fxmlLoader;
+                        root = FXMLLoader.load(getClass().getResource("menu2.fxml"));
+                        flag=1;
+                        Stage stage = (Stage) login1.getScene().getWindow();
+                        stage.setScene(new Scene(root));
+                        stage.show();
+                        new FadeIn(root).play();
+                        break;
+                    }
+                    else{
                     FXMLLoader fxmlLoader;
                     root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
                     flag=1;
@@ -54,7 +67,7 @@ public class HelloController {
                     stage.show();
                     new FadeIn(root).play();
                     break;
-                }
+                }}
             }
             if (flag==0) JOptionPane.showMessageDialog(null, "Incorrect Gmail !");
         }catch (Exception e){

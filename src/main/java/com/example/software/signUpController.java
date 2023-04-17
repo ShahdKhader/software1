@@ -17,7 +17,7 @@ import javafx.scene.control.TextField;
 
 public class signUpController {
     @FXML
-    private TextField address,userName,backUpNumber,gmail,id,password,phoneNumber;
+    private TextField address,userName,gmail,id,password,phoneNumber;
     @FXML
     private Label back;
     @FXML
@@ -54,14 +54,13 @@ public class signUpController {
             else if (!TESTINPUT.idTest(id.getText())) JOptionPane.showMessageDialog(null, "wrong id !", "ERROR", JOptionPane.ERROR_MESSAGE);
             else if (!TESTINPUT.passwordTest(password.getText())) JOptionPane.showMessageDialog(null, "wrong PASSWORD !", "ERROR", JOptionPane.ERROR_MESSAGE);
             else if (!TESTINPUT.phoneNumberTest(phoneNumber.getText())) JOptionPane.showMessageDialog(null, "wrong PHONE NUMBER !", "ERROR", JOptionPane.ERROR_MESSAGE);
-            else if (!TESTINPUT.phoneNumberTest(backUpNumber.getText())) JOptionPane.showMessageDialog(null, "wrong BACKUP NUMBER !", "ERROR", JOptionPane.ERROR_MESSAGE);
             else if (!TESTINPUT.gmailTest(gmail.getText())) JOptionPane.showMessageDialog(null, "wrong GMAIL !", "ERROR", JOptionPane.ERROR_MESSAGE);
 
             else if (id.getText().isEmpty() || phoneNumber.getText().isEmpty()|| gmail.getText().isEmpty()|| userName.getText().isEmpty()|| password.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Field is Empty", "ERROR", JOptionPane.ERROR_MESSAGE);
             }
             else{
-            database.insertIntoDatabase( "INSERT INTO ADMIN values('"+id.getText()+"','"+phoneNumber.getText()+"','"+address.getText()+"','"+gmail.getText()+"','"+userName.getText()+"','"+password.getText()+"','"+backUpNumber.getText()+"')");
+            database.insertIntoDatabase( "INSERT INTO CUSTOMER values('"+id.getText()+"','"+phoneNumber.getText()+"','"+address.getText()+"','"+gmail.getText()+"','"+userName.getText()+"','"+password.getText()+"')");
                 JOptionPane.showMessageDialog(null, "DONE ", "INSERTED", JOptionPane.INFORMATION_MESSAGE);
                 try{
                     Parent root;

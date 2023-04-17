@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -35,17 +36,28 @@
       </Label>
       <VBox layoutX="46.0" layoutY="104.0" prefHeight="379.0" prefWidth="658.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="100.0">
          <children>
-            <TableView prefHeight="378.0" prefWidth="658.0">
+            <TableView fx:id="table_report" prefHeight="378.0" prefWidth="658.0">
               <columns>
-                <TableColumn prefWidth="105.0" text="Order NO." />
-                <TableColumn prefWidth="105.0" text="Date" />
-                  <TableColumn prefWidth="110.0" text="Customer Name" />
-                  <TableColumn prefWidth="110.0" text="Product" />
-                  <TableColumn prefWidth="106.0" text="Quantity" />
-                  <TableColumn prefWidth="110.0" text="Price" />
+                <TableColumn fx:id="customer_name" prefWidth="105.0" text="Customer Name" />
+                <TableColumn fx:id="product_name" prefWidth="105.0" text="Product" />
+                  <TableColumn fx:id="col_quantity" prefWidth="110.0" text="Quantity" />
+                  <TableColumn fx:id="col_size" prefWidth="110.0" text="Size" />
+                  <TableColumn fx:id="col_color" prefWidth="106.0" text="Color" />
+                  <TableColumn fx:id="col_price" prefWidth="110.0" text="Price" />
               </columns>
             </TableView>
          </children>
       </VBox>
+      <Label fx:id="back" layoutX="680.0" layoutY="14.0" onMouseClicked="#backClicked" prefHeight="35.0" prefWidth="55.0" text="Back " textFill="#bc4e2a">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+         <opaqueInsets>
+            <Insets left="60.0" />
+         </opaqueInsets>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Label>
    </children>
 </AnchorPane>

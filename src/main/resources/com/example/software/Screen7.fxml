@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="750.0" styleClass="back" stylesheets="@accessories/screen2.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.software.Screen7">
+    <children>
+        <ImageView fitHeight="91.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@accessories/Logo22.png" />
+            </image>
+        </ImageView>
+        <Label layoutX="91.0" layoutY="20.0" prefHeight="51.0" prefWidth="166.0" text="Shiny Carpet" textFill="#bc4e2a">
+            <font>
+                <Font name="System Bold Italic" size="24.0" />
+            </font>
+            <opaqueInsets>
+                <Insets left="60.0" />
+            </opaqueInsets>
+        </Label>
+        <VBox layoutX="121.0" layoutY="175.0" prefHeight="325.0" prefWidth="530.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="121.0" AnchorPane.rightAnchor="99.0" AnchorPane.topAnchor="175.0">
+            <children>
+                <HBox prefHeight="103.0" prefWidth="530.0">
+                    <children>
+                        <Label prefHeight="42.0" prefWidth="167.0" text="ID customer" textFill="#bc4e2a">
+                            <font>
+                                <Font name="System Bold Italic" size="22.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="ID_customer" prefHeight="45.0" prefWidth="184.0" />
+                        <HBox alignment="TOP_CENTER" prefHeight="85.0" prefWidth="101.0">
+                            <children>
+                                <ImageView fx:id="add" fitHeight="43.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@accessories/search_FILL0_wght400_GRAD0_opsz48.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </HBox>
+                    </children>
+                </HBox>
+                <HBox layoutX="10.0" layoutY="10.0" prefHeight="52.0" prefWidth="540.0">
+                    <children>
+                        <Label prefHeight="42.0" prefWidth="167.0" text="Total delivered" textFill="#bc4e2a">
+                            <font>
+                                <Font name="System Bold Italic" size="20.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="totalDelivered" prefHeight="39.0" prefWidth="184.0" />
+                    </children>
+                </HBox>
+            <HBox layoutX="10.0" layoutY="113.0" prefHeight="52.0" prefWidth="540.0">
+               <children>
+                  <Label prefHeight="42.0" prefWidth="167.0" text="Total cash" textFill="#bc4e2a">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="totalCash" prefHeight="39.0" prefWidth="184.0" />
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="165.0" prefHeight="52.0" prefWidth="540.0">
+               <children>
+                  <Label prefHeight="42.0" prefWidth="167.0" text="Total paid" textFill="#bc4e2a">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="totalPaid" prefHeight="39.0" prefWidth="184.0" />
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="217.0" prefHeight="52.0" prefWidth="540.0">
+               <children>
+                  <Label prefHeight="42.0" prefWidth="167.0" text="Total debt" textFill="#bc4e2a">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="totalDebt" prefHeight="39.0" prefWidth="184.0" />
+               </children>
+            </HBox>
+            </children>
+        </VBox>
+        <Label layoutX="297.0" layoutY="79.0" prefHeight="54.0" prefWidth="278.0" text="Statistics" textAlignment="CENTER" textFill="#bc4e2a">
+            <font>
+                <Font name="System Bold Italic" size="36.0" />
+            </font>
+            <opaqueInsets>
+                <Insets left="60.0" />
+            </opaqueInsets>
+        </Label>
+        <Label fx:id="back" layoutX="692.0" layoutY="14.0" onMouseClicked="#backClicked" prefHeight="35.0" prefWidth="68.0" text="Back " textFill="#bc4e2a">
+            <font>
+                <Font name="System Bold Italic" size="18.0" />
+            </font>
+            <opaqueInsets>
+                <Insets left="60.0" />
+            </opaqueInsets>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Label>
+    </children>
+</AnchorPane>

@@ -26,7 +26,7 @@
             <Insets left="60.0" />
          </opaqueInsets>
       </Label>
-      <Label layoutX="294.0" layoutY="44.0" prefHeight="51.0" prefWidth="146.0" text="   Report" textFill="#bc4e2a">
+      <Label layoutX="282.0" layoutY="44.0" prefHeight="54.0" prefWidth="166.0" text="   Reports" textFill="#bc4e2a">
          <font>
             <Font name="System Bold Italic" size="36.0" />
          </font>

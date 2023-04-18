@@ -22,7 +22,7 @@
             <Insets left="60.0" />
          </opaqueInsets>
       </Label>
-      <Label layoutX="338.0" layoutY="55.0" prefHeight="51.0" prefWidth="123.0" text="MENU" textFill="#bc4e2a">
+      <Label layoutX="315.0" layoutY="55.0" prefHeight="51.0" prefWidth="146.0" text="MENU" textFill="#bc4e2a">
          <font>
             <Font name="System Bold Italic" size="24.0" />
          </font>

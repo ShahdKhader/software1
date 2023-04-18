@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -26,7 +25,7 @@
             <Insets left="60.0" />
          </opaqueInsets>
       </Label>
-      <Label layoutX="308.0" layoutY="106.0" prefHeight="60.0" prefWidth="229.0" text="Invoice" textAlignment="CENTER" textFill="#bc4e2a">
+      <Label layoutX="282.0" layoutY="71.0" prefHeight="60.0" prefWidth="229.0" text="Invoice" textAlignment="CENTER" textFill="#bc4e2a">
          <font>
             <Font name="System Bold Italic" size="36.0" />
          </font>
@@ -34,7 +33,7 @@
             <Insets left="60.0" />
          </opaqueInsets>
       </Label>
-      <VBox layoutX="132.0" layoutY="215.0" prefHeight="234.0" prefWidth="502.0">
+      <VBox layoutX="163.0" layoutY="139.0" prefHeight="301.0" prefWidth="470.0">
          <children>
             <HBox prefHeight="40.0" prefWidth="535.0">
                <children>
@@ -43,7 +42,7 @@
                         <Font name="System Bold Italic" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="Name" editable="false" prefHeight="40.0" prefWidth="260.0" promptText="Name" style="-fx-background-radius: 50;">
+                  <TextField fx:id="Name" prefHeight="40.0" prefWidth="260.0" promptText="Name" style="-fx-background-radius: 50;">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -60,7 +59,7 @@
                         <Font name="System Bold Italic" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="quantity" editable="false" prefHeight="34.0" prefWidth="260.0" promptText="Quantity" style="-fx-background-radius: 50;">
+                  <TextField fx:id="quantity" prefHeight="34.0" prefWidth="260.0" promptText="Quantity" style="-fx-background-radius: 50;">
                      <padding>
                         <Insets bottom="2.0" top="2.0" />
                      </padding>
@@ -80,7 +79,7 @@
                         <Font name="System Bold Italic" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="size" editable="false" prefHeight="40.0" prefWidth="260.0" promptText="Size" style="-fx-background-radius: 50;" />
+                  <TextField fx:id="size" prefHeight="40.0" prefWidth="260.0" promptText="Size" style="-fx-background-radius: 50;" />
                </children>
                <padding>
                   <Insets bottom="2.0" top="2.0" />
@@ -93,27 +92,53 @@
                         <Font name="System Bold Italic" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="color" editable="false" prefHeight="40.0" prefWidth="260.0" promptText="Color" style="-fx-background-radius: 50;" />
+                  <TextField fx:id="color" prefHeight="40.0" prefWidth="260.0" promptText="Color" style="-fx-background-radius: 50;" />
                </children>
                <padding>
                   <Insets bottom="2.0" top="2.0" />
                </padding>
             </HBox>
             <HBox prefHeight="40.0" prefWidth="637.0">
+               <padding>
+                  <Insets bottom="2.0" top="2.0" />
+               </padding>
                <children>
-                  <Label prefHeight="35.0" prefWidth="100.0" text="Picture" textFill="#bc4e2a">
+                  <HBox prefHeight="38.0" prefWidth="654.0">
+                     <children>
+                        <Label prefHeight="35.0" prefWidth="100.0" text="Price" textFill="#bc4e2a">
+                           <font>
+                              <Font name="System Bold Italic" size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="color1" prefHeight="40.0" prefWidth="260.0" promptText="Color" style="-fx-background-radius: 50;" />
+                     </children>
+                     <padding>
+                        <Insets bottom="2.0" top="2.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="38.0" prefWidth="654.0">
+               <children>
+                  <Label prefHeight="35.0" prefWidth="100.0" text="Discount" textFill="#bc4e2a">
                      <font>
                         <Font name="System Bold Italic" size="18.0" />
                      </font>
                   </Label>
-                  <ImageView fx:id="picture" fitHeight="55.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@accessories/add_photo_alternate_FILL0_wght400_GRAD0_opsz48.png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets left="10.0" />
-                     </HBox.margin>
-                  </ImageView>
+                  <TextField fx:id="color2" prefHeight="40.0" prefWidth="260.0" promptText="Color" style="-fx-background-radius: 50;" />
+               </children>
+               <padding>
+                  <Insets bottom="2.0" top="2.0" />
+               </padding>
+            </HBox>
+            <HBox prefHeight="38.0" prefWidth="654.0">
+               <children>
+                  <Label prefHeight="35.0" prefWidth="100.0" text="New Price" textFill="#bc4e2a">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="color21" prefHeight="40.0" prefWidth="260.0" promptText="Color" style="-fx-background-radius: 50;" />
                </children>
                <padding>
                   <Insets bottom="2.0" top="2.0" />
@@ -121,16 +146,10 @@
             </HBox>
          </children>
       </VBox>
-      <Label fx:id="back" layoutX="682.0" layoutY="14.0" onMouseClicked="#backClicked" prefHeight="35.0" prefWidth="68.0" text="Back " textFill="#bc4e2a">
-         <font>
-            <Font name="System Bold Italic" size="18.0" />
-         </font>
-         <opaqueInsets>
-            <Insets left="60.0" />
-         </opaqueInsets>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Label>
+      <ImageView fx:id="picture" fitHeight="98.0" fitWidth="109.0" layoutX="612.0" layoutY="353.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@accessories/add_photo_alternate_FILL0_wght400_GRAD0_opsz48.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

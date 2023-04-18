@@ -115,7 +115,7 @@
                         <Insets left="80.0" top="10.0" />
                      </HBox.margin>
                      <cursor>
-                        <Cursor fx:constant="HAND" />
+                        <Cursor fx:constant="OPEN_HAND" />
                      </cursor>
                   </Button>
                </children>

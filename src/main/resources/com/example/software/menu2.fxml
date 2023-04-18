@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="menu2Controller">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.software.menu2Controller">
    <children>
       <AnchorPane layoutX="-10.0" layoutY="-5.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="750.0" styleClass="back" stylesheets="@accessories/screen2.css">
          <children>
@@ -38,30 +38,42 @@
                   <Image url="@accessories/Bubble3.png" />
                </image>
             </ImageView>
-            <Label fx:id="insertOrder" layoutX="227.0" layoutY="180.0" onMouseClicked="#insrtOrderClicked" prefHeight="22.0" prefWidth="79.0" text="Track Order" textFill="#bc4e2a">
+            <Label fx:id="Trackorder" layoutX="227.0" layoutY="180.0" onMouseClicked="#TrackOrderClicked" prefHeight="22.0" prefWidth="79.0" text="Track Order" textFill="#bc4e2a">
                <font>
                   <Font name="System Bold Italic" size="14.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Label>
             <ImageView fitHeight="185.0" fitWidth="204.0" layoutX="368.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@accessories/Bubble3.png" />
                </image>
             </ImageView>
-            <Label fx:id="invoice" layoutX="432.0" layoutY="180.0" onMouseClicked="#InvoiceClicked" prefHeight="22.0" prefWidth="72.0" text="Statistics" textFill="#bc4e2a">
+            <Label fx:id="Statistics" layoutX="432.0" layoutY="180.0" onMouseClicked="#StatisticsClicked" prefHeight="22.0" prefWidth="72.0" text="Statistics" textFill="#bc4e2a">
                <font>
                   <Font name="System Bold Italic" size="14.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Label>
-            <Label fx:id="setting" layoutX="406.0" layoutY="348.0" onMouseClicked="#settingClicked" prefHeight="30.0" prefWidth="123.0" text="Available Worker" textFill="#bc4e2a">
+            <Label fx:id="AvailableWorker" layoutX="406.0" layoutY="348.0" onMouseClicked="#AvailableWorkerClicked" prefHeight="30.0" prefWidth="123.0" text="Available Worker" textFill="#bc4e2a">
                <font>
                   <Font name="System Bold Italic" size="14.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Label>
-            <Label fx:id="report" layoutX="244.0" layoutY="348.0" onMouseClicked="#ReportClicked" prefHeight="30.0" prefWidth="79.0" text="Report" textFill="#bc4e2a">
+            <Label fx:id="Report" layoutX="244.0" layoutY="348.0" onMouseClicked="#ReportClicked" prefHeight="30.0" prefWidth="79.0" text="Report" textFill="#bc4e2a">
                <font>
                   <Font name="System Bold Italic" size="14.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Label>
             <ImageView fitHeight="185.0" fitWidth="204.0" layoutX="368.0" layoutY="271.0" pickOnBounds="true" preserveRatio="true">
                <image>

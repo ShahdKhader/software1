@@ -13,7 +13,7 @@ import javafx.fxml.FXML;
 public class menu2Controller {
 
     @FXML
-    private Label AvailableWorker,Statistics,Trackorder,report;
+    private Label AvailableWorker,Statistics,Trackorder,Report;
     @FXML
     void AvailableWorkerClicked(MouseEvent event) {
         try{
@@ -35,7 +35,7 @@ public class menu2Controller {
             Parent root;
             FXMLLoader fxmlLoader;
             root = FXMLLoader.load(getClass().getResource("report.fxml"));
-            Stage stage = (Stage) report.getScene().getWindow();
+            Stage stage = (Stage) Report.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
             new FadeIn(root).play();

@@ -43,33 +43,37 @@ public class HelloController {
                 String gmail = rs.getString(1);
                 String Password = rs.getString(2);
                 Parent root;
-                if (gmailLogIn.getText().equals(gmail) && !passwordLogIn.getText().equals(Password)) {
-                    JOptionPane.showMessageDialog(null, "Incorrect Password");
+                if(gmailLogIn.getText().equals("admin")&&passwordLogIn.getText().equals("admin")){
+                    FXMLLoader fxmlLoader;
+                    System.out.println("yes");
+
+                    root = FXMLLoader.load(getClass().getResource("menu2.fxml"));
+                    Stage stage = (Stage) login1.getScene().getWindow();
+                    stage.setScene(new Scene(root));
+                    stage.show();
+                    new FadeIn(root).play();
+                    System.out.println("yes");
                     break;
-                } else if (gmailLogIn.getText().equals(gmail) && passwordLogIn.getText().equals(Password)) {
-                    z=gmailLogIn.getText();
-                    if(gmailLogIn.getText().equals("admin")&&passwordLogIn.getText().equals("admin")){
-                        FXMLLoader fxmlLoader;
-                        root = FXMLLoader.load(getClass().getResource("menu2.fxml"));
-                        flag=1;
-                        Stage stage = (Stage) login1.getScene().getWindow();
-                        stage.setScene(new Scene(root));
-                        stage.show();
-                        new FadeIn(root).play();
+                }
+                else if (gmailLogIn.getText().equals(gmail) && !passwordLogIn.getText().equals(Password)) {
+                    JOptionPane.showMessageDialog(null, "Incorrect Password");
+                    break;}
+                else if (!gmailLogIn.getText().equals(gmail) && passwordLogIn.getText().equals(Password)) {
+                        JOptionPane.showMessageDialog(null, "Incorrect Gmail");
                         break;
-                    }
-                    else{
+                }
+                else if (gmailLogIn.getText().equals(gmail) && passwordLogIn.getText().equals(Password)) {
+                    z=gmailLogIn.getText();
                     FXMLLoader fxmlLoader;
                     root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
-                    flag=1;
                     Stage stage = (Stage) login1.getScene().getWindow();
                     stage.setScene(new Scene(root));
                     stage.show();
                     new FadeIn(root).play();
                     break;
-                }}
+                }
+
             }
-            if (flag==0) JOptionPane.showMessageDialog(null, "Incorrect Gmail !");
         }catch (Exception e){
             throw new RuntimeException(e);
         }

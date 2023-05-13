@@ -10,7 +10,10 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javax.swing.*;
+import java.io.IOException;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class HelloController {
     @FXML
     public TextField gmailLogIn;
@@ -59,8 +62,11 @@ public class HelloController {
                 }
             }
             JOptionPane.showMessageDialog(null, "Incorrect Gmail");
-        }catch (Exception e){
-            throw new RuntimeException(e);
+        } catch (SQLException e) {
+            System.out.println("Database connection error: " + e.getMessage());
+        }
+        catch (IOException e){
+        System.out.println("An error occurred while opening a new window: " + e.getMessage());
         }
     }
     @FXML
@@ -68,12 +74,12 @@ public class HelloController {
         try{
             Parent root;
             root = FXMLLoader.load(getClass().getResource("SignUp.fxml"));
-            Stage stage = (Stage) login1.getScene().getWindow();
+            Stage stage = (Stage) signUp.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
             new FadeIn(root).play();
-        }catch (Exception e){
-            throw new RuntimeException(e);
+        }catch (IOException e){
+            System.out.println("An error occurred while opening a new window: " + e.getMessage());
         }
     }
 

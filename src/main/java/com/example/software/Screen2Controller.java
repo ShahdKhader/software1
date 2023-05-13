@@ -113,7 +113,7 @@ public class Screen2Controller implements Initializable {
     }
 
     private static  int money=0;
-    private String errorMassage="ERROR";
+    private String errorMassage="errorMassage";
     private static ImageView orderPic;
 
     public static ImageView getOrderPic() {
@@ -140,20 +140,19 @@ public class Screen2Controller implements Initializable {
     @FXML
     ///
     void saveClicked(ActionEvent event) {
+        HelloController h = new HelloController();
         try{
-        if(namescreen2.getSelectionModel().isEmpty() && sizescreen2.getSelectionModel().isEmpty() && quantityscreen2.getText().isEmpty() && colorscreen2.getText().isEmpty()) JOptionPane.showMessageDialog(null,"Please Fill the Data First !","errorMassage",JOptionPane.ERROR_MESSAGE);
-        else if(quantityscreen2.getText().isEmpty())JOptionPane.showMessageDialog(null,"Select The Quantitiy !","errorMassage",JOptionPane.ERROR_MESSAGE);
-        else if(colorscreen2.getText().isEmpty())JOptionPane.showMessageDialog(null,"Select The Color !","errorMassage",JOptionPane.ERROR_MESSAGE);
-        else if(!TESTINPUT.orderQuantityTest(quantityscreen2.getText())) JOptionPane.showMessageDialog(null,"Unvalied Quantity","errorMassage",JOptionPane.ERROR_MESSAGE);
-        else if(!TESTINPUT.orderColorTest(colorscreen2.getText())) JOptionPane.showMessageDialog(null,"Unvalied Color","errorMassage",JOptionPane.ERROR_MESSAGE);
+        if(namescreen2.getSelectionModel().isEmpty() && sizescreen2.getSelectionModel().isEmpty() && quantityscreen2.getText().isEmpty() && colorscreen2.getText().isEmpty()) JOptionPane.showMessageDialog(null,"Please Fill the Data First !",errorMassage,JOptionPane.ERROR_MESSAGE);
+        else if(quantityscreen2.getText().isEmpty())JOptionPane.showMessageDialog(null,"Select The Quantitiy !",errorMassage,JOptionPane.ERROR_MESSAGE);
+        else if(colorscreen2.getText().isEmpty())JOptionPane.showMessageDialog(null,"Select The Color !",errorMassage,JOptionPane.ERROR_MESSAGE);
+        else if(!TESTINPUT.orderQuantityTest(quantityscreen2.getText())) JOptionPane.showMessageDialog(null,"Unvalied Quantity",errorMassage,JOptionPane.ERROR_MESSAGE);
+        else if(!TESTINPUT.orderColorTest(colorscreen2.getText())) JOptionPane.showMessageDialog(null,"Unvalied Color",errorMassage,JOptionPane.ERROR_MESSAGE);
         else {
-            HelloController h = new HelloController();
             String x = h.getZ();
             ResultSet customerEnteredId = database.createDatabase("select CID from CUSTOMER where GMAIL =" + "'" + x + "'");
             while (customerEnteredId.next()) {
                 setCustomerEnteredId2(customerEnteredId.getString(1));
             }
-            String type = namescreen2.getValue();
         }
        if(sizescreen2.getValue().equals("SMALL")) {
            ResultSet r=database.createDatabase("select smallsalary from item where type='"+namescreen2.getValue()+"'");
@@ -166,11 +165,11 @@ public class Screen2Controller implements Initializable {
          database.insertIntoDatabase("insert into PRODUCT values(productSequence1.nextval,'"+ "407222222"+"','"+customerEnteredId2+ "','"+namescreen2.getValue()+"','" +
                 quantityscreen2.getText()+"','"+sizescreen2.getValue()+"','"+colorscreen2.getText()+"','"+"waiting"+"','"+money+"')");
         JOptionPane.showMessageDialog(null, "DONE ", "INSERTED", JOptionPane.INFORMATION_MESSAGE);
-            name=namescreen2.getValue();
-            quantity=quantityscreen2.getText();
-            size=sizescreen2.getValue();
-            color=colorscreen2.getText();
-            orderPic=orderPicture;
+            setName(namescreen2.getValue());
+            setQuantity(quantityscreen2.getText());
+            setSize(sizescreen2.getValue());
+            setColor(colorscreen2.getText());
+            setOrderPic(orderPicture);
             Parent root;
             root = FXMLLoader.load(getClass().getResource("screen3.fxml"));
             Stage stage = (Stage) save.getScene().getWindow();
@@ -192,11 +191,10 @@ public class Screen2Controller implements Initializable {
         File file=fileChooser.showOpenDialog(stage);
         if (file != null) {
                 String iconimagepath = file.getAbsolutePath();
-                System.out.println(iconimagepath);
                 orderPicture.setImage(new Image(iconimagepath));
                 temp=iconimagepath;
             }
-        else if(!TESTINPUT.orderPictureTest(temp)) JOptionPane.showMessageDialog(null,"Unvalied Picture","errorMassage",JOptionPane.ERROR_MESSAGE);
+        else if(!TESTINPUT.orderPictureTest(temp)) JOptionPane.showMessageDialog(null,"Unvalied Picture",errorMassage,JOptionPane.ERROR_MESSAGE);
 
 
 

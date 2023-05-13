@@ -10,8 +10,7 @@ public class TESTINPUT {
                     break;
                 }
             }
-            if (flag == true) return true;
-            else return false;
+            return flag;
         }
         return false;
     }
@@ -25,8 +24,7 @@ public class TESTINPUT {
                     break;
                 }
             }
-            if (flag == true) return true;
-            else return false;
+            return flag;
         }
         return false;
     }
@@ -38,15 +36,16 @@ public class TESTINPUT {
             for (int i = 1; i < gmail.length(); i++) {
                 if (gmail.charAt(i) == '@') flag = true;
             }
-            if (flag == false) return false;
-            else return true;
+            return flag;
         }
     }
 
     public static boolean passwordTest(String password) {
+        boolean flags=false;
+        boolean flagc=false;
+        boolean flagn=false;
         if( password.length()<8) return false;
         else {
-            boolean flags=false,flagc=false,flagn=false;
             for (int i = 0; i < password.length(); i++){
                 if(Character.isLowerCase(password.charAt(i))) flags=true;
                 else if(Character.isUpperCase(password.charAt(i))) flagc=true;
@@ -73,8 +72,7 @@ public class TESTINPUT {
                     break;
                 }
             }
-            if(flag == true)return true;
-            else return false;
+           return flag;
           }
           return false;
     }
@@ -90,8 +88,7 @@ public class TESTINPUT {
                 break;
             }
         }
-        if (flag == true) return true;
-        else return false;
+        return flag;
     }
 
     public static boolean orderPictureTest(String Picture) {

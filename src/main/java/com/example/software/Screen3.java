@@ -59,12 +59,12 @@ public class Screen3 implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-       nameLabel.setText(Screen2Controller.name);
-       sizeLabel.setText(Screen2Controller.size);
-       quantityLabel.setText(Screen2Controller.quantity);
-       colorLabel.setText(Screen2Controller.color);
-       invoicePicture.setImage(Screen2Controller.orderPic.getImage());
-       priceLabel.setText(String.valueOf(Screen2Controller.money));
+       nameLabel.setText(Screen2Controller.getName());
+       sizeLabel.setText(Screen2Controller.getSize());
+       quantityLabel.setText(Screen2Controller.getQuantity());
+       colorLabel.setText(Screen2Controller.getColor());
+       invoicePicture.setImage(Screen2Controller.getOrderPic().getImage());
+       priceLabel.setText(String.valueOf(Screen2Controller.getMoney()));
        ResultSet r=database.createDatabase("select * from product where cid='"+Screen2Controller.getCustomerEnteredId2()+"'");
        int count=0;
        try{
@@ -72,8 +72,8 @@ public class Screen3 implements Initializable {
        } catch (SQLException e) {
            logger.log(null,"Database connection error: ");
        }
-       if(count>20)discountLabel.setText(String.valueOf(Screen2Controller.money*0.1));
-       newPriceLabel.setText(String.valueOf(Screen2Controller.money-Screen2Controller.money*0.1));
+       if(count>20)discountLabel.setText(String.valueOf(Screen2Controller.getMoney()*0.1));
+       newPriceLabel.setText(String.valueOf(Screen2Controller.getMoney()-Screen2Controller.getMoney()*0.1));
 
     }
 }

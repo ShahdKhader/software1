@@ -33,12 +33,12 @@
                   <Insets left="60.0" />
                </opaqueInsets>
             </Label>
-            <ImageView fitHeight="185.0" fitWidth="204.0" layoutX="174.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="185.0" fitWidth="204.0" layoutX="91.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@accessories/Bubble3.png" />
                </image>
             </ImageView>
-            <Label fx:id="Trackorder" layoutX="227.0" layoutY="180.0" onMouseClicked="#TrackOrderClicked" prefHeight="22.0" prefWidth="79.0" text="Track Order" textFill="#bc4e2a">
+            <Label fx:id="Trackorder" layoutX="144.0" layoutY="180.0" onMouseClicked="#TrackOrderClicked" prefHeight="22.0" prefWidth="79.0" text="Track Order" textFill="#bc4e2a">
                <font>
                   <Font name="System Bold Italic" size="14.0" />
                </font>
@@ -46,12 +46,12 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <ImageView fitHeight="185.0" fitWidth="204.0" layoutX="368.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="185.0" fitWidth="204.0" layoutX="291.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@accessories/Bubble3.png" />
                </image>
             </ImageView>
-            <Label fx:id="Statistics" layoutX="432.0" layoutY="180.0" onMouseClicked="#StatisticsClicked" prefHeight="22.0" prefWidth="72.0" text="Statistics" textFill="#bc4e2a">
+            <Label fx:id="Statistics" layoutX="348.0" layoutY="180.0" onMouseClicked="#StatisticsClicked" prefHeight="22.0" prefWidth="72.0" text="Statistics" textFill="#bc4e2a">
                <font>
                   <Font name="System Bold Italic" size="14.0" />
                </font>
@@ -59,7 +59,17 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <Label fx:id="AvailableWorker" layoutX="406.0" layoutY="348.0" onMouseClicked="#AvailableWorkerClicked" prefHeight="30.0" prefWidth="123.0" text="Available Worker" textFill="#bc4e2a">
+            <ImageView fitHeight="185.0" fitWidth="204.0" layoutX="291.0" layoutY="271.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@accessories/Bubble3.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="185.0" fitWidth="204.0" layoutX="91.0" layoutY="271.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@accessories/Bubble3.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="Report" layoutX="161.0" layoutY="352.0" onMouseClicked="#ReportClicked" prefHeight="22.0" prefWidth="79.0" text="Report" textFill="#bc4e2a">
                <font>
                   <Font name="System Bold Italic" size="14.0" />
                </font>
@@ -67,7 +77,17 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <Label fx:id="Report" layoutX="244.0" layoutY="348.0" onMouseClicked="#ReportClicked" prefHeight="30.0" prefWidth="79.0" text="Report" textFill="#bc4e2a">
+            <ImageView fitHeight="185.0" fitWidth="204.0" layoutX="504.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@accessories/Bubble3.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="185.0" fitWidth="204.0" layoutX="504.0" layoutY="271.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@accessories/Bubble3.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="customerOperation" layoutX="528.0" layoutY="180.0" onMouseClicked="#customerOperationClicked" prefHeight="22.0" prefWidth="138.0" text="Customer Operation" textFill="#bc4e2a">
                <font>
                   <Font name="System Bold Italic" size="14.0" />
                </font>
@@ -75,16 +95,14 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <ImageView fitHeight="185.0" fitWidth="204.0" layoutX="368.0" layoutY="271.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@accessories/Bubble3.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="185.0" fitWidth="204.0" layoutX="173.0" layoutY="271.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@accessories/Bubble3.png" />
-               </image>
-            </ImageView>
+            <Label fx:id="productOperation" layoutX="537.0" layoutY="352.0" onMouseClicked="#productOperationClicked" prefHeight="22.0" prefWidth="138.0" text="Product Operation" textFill="#bc4e2a">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
          </children>
       </AnchorPane>
    </children>

@@ -1,4 +1,8 @@
 package com.example.software;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.Initializable;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import animatefx.animation.FadeIn;
 import javafx.fxml.FXML;
@@ -11,18 +15,20 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+import java.net.URL;
 import java.sql.ResultSet;
+import java.util.ResourceBundle;
 
-public class statisticsController {
+public class statisticsController implements Initializable {
     @FXML
     private ImageView add;
     @FXML
     private Label back;
-
-    @FXML
-    private TextField totalCash,totalDebt,totalDelivered,totalPaid,ID_customer;
     @FXML
     private Button statistics;
+    @FXML
+    private PieChart pieChart;
+
     @FXML
     void backClicked(MouseEvent event) {
         try {
@@ -37,19 +43,25 @@ public class statisticsController {
             throw new RuntimeException(e);
         }
     }
-    @FXML
-    void statistics(MouseEvent event) {
-        int count=0;
-         String z =ID_customer.getText();
-       ResultSet rs= database.createDatabase("select * from PRODUCT where CID="+z);
-       try {
-           while (rs.next()) count++;
-       }catch(Exception e){
-           throw new RuntimeException(e);
-       }
-        totalDelivered.setText(String.valueOf(count));
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        int workingCount=0,completeCount=0,inTreatmentCount=0;
+        ResultSet r1=database.createDatabase("select * from PRODUCT where status='working'");
+        ResultSet r2=database.createDatabase("select * from PRODUCT where status='complete'");
+        ResultSet r3=database.createDatabase("select * from PRODUCT where status='in treatment'");
+        try{
+            while(r1.next()) workingCount++;
+            while(r2.next()) completeCount++;
+            while(r3.next()) inTreatmentCount++;
+        }catch (Exception e){
+            throw new RuntimeException(e);
+        }
+        ObservableList<PieChart.Data>pieChartData= FXCollections.observableArrayList(
+                new PieChart.Data("WORKING",workingCount),
+                new PieChart.Data("COMPLETE",completeCount),
+                new PieChart.Data("IN TREATMENT",inTreatmentCount));
 
+        pieChart.setData(pieChartData);
+        pieChart.setStartAngle(90);
     }
-
-
 }

@@ -13,7 +13,7 @@ import javafx.fxml.FXML;
 public class menu2Controller {
 
     @FXML
-    private Label AvailableWorker,Statistics,Trackorder,Report;
+    private Label AvailableWorker,Statistics,Trackorder,Report,customerOperation,productOperation;
     @FXML
     void AvailableWorkerClicked(MouseEvent event) {
         try{
@@ -66,6 +66,35 @@ public class menu2Controller {
             FXMLLoader fxmlLoader;
             root = FXMLLoader.load(getClass().getResource("trackOrder.fxml"));
             Stage stage = (Stage) Trackorder.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+            new FadeIn(root).play();
+        }catch (Exception e){
+            throw new RuntimeException(e);
+        }
+    }
+    @FXML
+    void customerOperationClicked(MouseEvent event) {
+        try{
+            Parent root;
+            FXMLLoader fxmlLoader;
+            root = FXMLLoader.load(getClass().getResource("customerOperation.fxml"));
+            Stage stage = (Stage) customerOperation.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+            new FadeIn(root).play();
+        }catch (Exception e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    void productOperationClicked(MouseEvent event) {
+        try{
+            Parent root;
+            FXMLLoader fxmlLoader;
+            root = FXMLLoader.load(getClass().getResource("productOperation.fxml"));
+            Stage stage = (Stage) productOperation.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
             new FadeIn(root).play();

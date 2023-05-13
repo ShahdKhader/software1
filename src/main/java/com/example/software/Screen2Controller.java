@@ -1,5 +1,6 @@
 package com.example.software;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -37,6 +38,8 @@ public class Screen2Controller implements Initializable {
     @FXML
     private TextField colorscreen2,quantityscreen2;
     @FXML
+    private Label back;
+    @FXML
     private ComboBox<String> sizescreen2;
     @FXML
     private ComboBox<String> namescreen2;
@@ -46,14 +49,34 @@ public class Screen2Controller implements Initializable {
     private Button importPicture,save;
     @FXML
     private ImageView orderPicture;
-    public String customerEnteredId2;
+    public static String customerEnteredId2;
     public int discount;
+    public static String name,quantity,size,color;
+    public static  int money=0;
+    public static ImageView orderPic;
+    @FXML
+    void backClicked(MouseEvent event) {
+        try {
+            Parent root;
+            FXMLLoader fxmlLoader;
+            root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
+            Stage stage = (Stage) back.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+            new FadeIn(root).play();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
     @FXML
     void saveClicked(ActionEvent event) {
-   // if(TESTINPUT.ordernameTest(namescreen2.getValue())==0) JOptionPane.showMessageDialog(null,"Unvalied name","ERROR",JOptionPane.ERROR_MESSAGE);
-     if(!TESTINPUT.orderQuantityTest(quantityscreen2.getText())) JOptionPane.showMessageDialog(null,"Unvalied Quantity","ERROR",JOptionPane.ERROR_MESSAGE);
-    //else if(!TESTINPUT.orderSizeTest(sizescreen2.getValue())) JOptionPane.showMessageDialog(null,"Unvalied Size","ERROR",JOptionPane.ERROR_MESSAGE);
-    else if(!TESTINPUT.orderColorTest(colorscreen2.getText())) JOptionPane.showMessageDialog(null,"Unvalied Color","ERROR",JOptionPane.ERROR_MESSAGE);
+        if(namescreen2.getSelectionModel().isEmpty() && sizescreen2.getSelectionModel().isEmpty() && quantityscreen2.getText().isEmpty() && colorscreen2.getText().isEmpty()) JOptionPane.showMessageDialog(null,"Please Fill the Data First !","ERROR",JOptionPane.ERROR_MESSAGE);
+        else if(namescreen2.getSelectionModel().isEmpty())JOptionPane.showMessageDialog(null,"Select The Name !","ERROR",JOptionPane.ERROR_MESSAGE);
+        else if(sizescreen2.getSelectionModel().isEmpty())JOptionPane.showMessageDialog(null,"Select The Size !","ERROR",JOptionPane.ERROR_MESSAGE);
+        else if(quantityscreen2.getText().isEmpty())JOptionPane.showMessageDialog(null,"Select The Size !","ERROR",JOptionPane.ERROR_MESSAGE);
+        else if(colorscreen2.getText().isEmpty())JOptionPane.showMessageDialog(null,"Select The Size !","ERROR",JOptionPane.ERROR_MESSAGE);
+        else if(!TESTINPUT.orderQuantityTest(quantityscreen2.getText())) JOptionPane.showMessageDialog(null,"Unvalied Quantity","ERROR",JOptionPane.ERROR_MESSAGE);
+        else if(!TESTINPUT.orderColorTest(colorscreen2.getText())) JOptionPane.showMessageDialog(null,"Unvalied Color","ERROR",JOptionPane.ERROR_MESSAGE);
     else {
         HelloController h=new HelloController();
        String x= h.z;
@@ -68,25 +91,35 @@ public class Screen2Controller implements Initializable {
             throw new RuntimeException(e);
         }
         String type= namescreen2.getValue();
-        int money=0;
-        if(type =="COVER"&&sizescreen2.getValue()=="SMALL" ) money=50*Integer.parseInt(quantityscreen2.getText());
-        else if(type =="COVER"&&sizescreen2.getValue()=="MEDIUM" ) money=100*Integer.parseInt(quantityscreen2.getText());
-        else if(type =="COVER"&&sizescreen2.getValue()=="LARGE" ) money=150*Integer.parseInt(quantityscreen2.getText());
-        else if(type =="CARPET"&&sizescreen2.getValue()=="SMALL" ) money=150*Integer.parseInt(quantityscreen2.getText());
-        else if(type =="CARPET"&&sizescreen2.getValue()=="MEDIUM" ) money=200*Integer.parseInt(quantityscreen2.getText());
-        else if(type =="CARPET"&&sizescreen2.getValue()=="LARGE" ) money=250*Integer.parseInt(quantityscreen2.getText());
-        else if(type =="BLANKET"&&sizescreen2.getValue()=="SMALL" ) money=100*Integer.parseInt(quantityscreen2.getText());
-        else if(type =="BLANKET"&&sizescreen2.getValue()=="MEDIUM" ) money=150*Integer.parseInt(quantityscreen2.getText());
-        else if(type =="BLANKET"&&sizescreen2.getValue()=="LARGE" ) money=200*Integer.parseInt(quantityscreen2.getText());
+       if(sizescreen2.getValue().equals("SMALL")) {
+           ResultSet r=database.createDatabase("select smallsalary from item where type='"+namescreen2.getValue()+"'");
+           try{
+               r.next();
+               money=Integer.parseInt(quantityscreen2.getText())*Integer.parseInt(r.getString(1));
+           }catch (Exception e){
+               throw new RuntimeException(e);
+           }
+       }
+                ResultSet r=database.createDatabase("select "+sizescreen2.getValue()+"salary from item where type='"+namescreen2.getValue()+"'");
+                try{
+                    r.next();
+                    money=Integer.parseInt(quantityscreen2.getText())*Integer.parseInt(r.getString(1));
+                }catch (Exception e){
+                    throw new RuntimeException(e);
+                }
 
          database.insertIntoDatabase("insert into PRODUCT values(productSequence1.nextval,'"+ "407222222"+"','"+customerEnteredId2+ "','"+namescreen2.getValue()+"','" +
                 quantityscreen2.getText()+"','"+sizescreen2.getValue()+"','"+colorscreen2.getText()+"','"+"waiting"+"','"+money+"')");
         JOptionPane.showMessageDialog(null, "DONE ", "INSERTED", JOptionPane.INFORMATION_MESSAGE);
-
-        try{
+            name=namescreen2.getValue();
+            quantity=quantityscreen2.getText();
+            size=sizescreen2.getValue();
+            color=colorscreen2.getText();
+            orderPic=orderPicture;
+            try{
             Parent root;
             FXMLLoader fxmlLoader;
-            root = FXMLLoader.load(getClass().getResource("Screen3.fxml"));
+            root = FXMLLoader.load(getClass().getResource("screen3.fxml"));
             Stage stage = (Stage) save.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
@@ -117,7 +150,16 @@ public class Screen2Controller implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        namescreen2.setItems(FXCollections.observableArrayList("COVER","CARPET","BLANKET"));
+        ObservableList<String> o =FXCollections.observableArrayList();
+        ResultSet r=database.createDatabase("select * from item");
+        try {
+            while (r.next()) {
+                o.add(r.getString(1));
+            }
+        }catch (Exception e){
+            throw new RuntimeException(e);
+        }
+        namescreen2.setItems(o);
         sizescreen2.setItems(FXCollections.observableArrayList("SMALL","MEDUIM","LARGE"));
 
     }

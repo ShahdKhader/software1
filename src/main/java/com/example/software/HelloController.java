@@ -9,27 +9,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import oracle.jdbc.pool.OracleDataSource;
-
 import javax.swing.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.Statement;
-
 public class HelloController {
-
     @FXML
     public TextField gmailLogIn;
-
     @FXML
-    private Button login1;
-
+    private Button login1,signUp;
     @FXML
     private PasswordField passwordLogIn;
-
-    @FXML
-    private Button signUp;
 
     @FXML
     public static String z;
@@ -39,41 +27,38 @@ public class HelloController {
         try {
             int flag=0;
             ResultSet rs = database.createDatabase("select GMAIL,PASSWORD from CUSTOMER");
-            while (rs.next()) {
-                String gmail = rs.getString(1);
-                String Password = rs.getString(2);
+            ResultSet ra=database.createDatabase("select GMAIL,PASSWORD from admin ");
+            while (ra.next()){
+                String gmailA = ra.getString(1);
+                String PasswordA = ra.getString(2);
                 Parent root;
-                if(gmailLogIn.getText().equals("admin")&&passwordLogIn.getText().equals("admin")){
-                    FXMLLoader fxmlLoader;
-                    System.out.println("yes");
-
+                if (gmailLogIn.getText().equals(gmailA) && passwordLogIn.getText().equals(PasswordA)) {
                     root = FXMLLoader.load(getClass().getResource("menu2.fxml"));
                     Stage stage = (Stage) login1.getScene().getWindow();
                     stage.setScene(new Scene(root));
                     stage.show();
                     new FadeIn(root).play();
-                    System.out.println("yes");
-                    break;
+                    return;
                 }
-                else if (gmailLogIn.getText().equals(gmail) && !passwordLogIn.getText().equals(Password)) {
+            }
+            while (rs.next()) {
+                String gmail = rs.getString(1);
+                String Password = rs.getString(2);
+                Parent root;
+              if (gmailLogIn.getText().equals(gmail) && !passwordLogIn.getText().equals(Password)) {
                     JOptionPane.showMessageDialog(null, "Incorrect Password");
-                    break;}
-                else if (!gmailLogIn.getText().equals(gmail) && passwordLogIn.getText().equals(Password)) {
-                        JOptionPane.showMessageDialog(null, "Incorrect Gmail");
-                        break;
-                }
+                    return;}
                 else if (gmailLogIn.getText().equals(gmail) && passwordLogIn.getText().equals(Password)) {
                     z=gmailLogIn.getText();
-                    FXMLLoader fxmlLoader;
-                    root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
+                    root = FXMLLoader.load(getClass().getResource("Screen2.fxml"));
                     Stage stage = (Stage) login1.getScene().getWindow();
                     stage.setScene(new Scene(root));
                     stage.show();
                     new FadeIn(root).play();
-                    break;
+                    return;
                 }
-
             }
+            JOptionPane.showMessageDialog(null, "Incorrect Gmail");
         }catch (Exception e){
             throw new RuntimeException(e);
         }
@@ -81,8 +66,7 @@ public class HelloController {
     @FXML
     void signUp1Clicked(ActionEvent event) {
         try{
-        Parent root;
-        FXMLLoader fxmlLoader;
+            Parent root;
             root = FXMLLoader.load(getClass().getResource("SignUp.fxml"));
             Stage stage = (Stage) login1.getScene().getWindow();
             stage.setScene(new Scene(root));

@@ -12,7 +12,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="750.0" styleClass="back" stylesheets="@accessories/login.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.software.HelloController">
    <children>
@@ -82,10 +81,5 @@
             </Button>
          </children>
       </HBox>
-      <Text fill="#898484" layoutX="475.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forget Password?" wrappingWidth="98.13677978515625">
-         <font>
-            <Font name="System Bold Italic" size="12.0" />
-         </font>
-      </Text>
    </children>
 </AnchorPane>

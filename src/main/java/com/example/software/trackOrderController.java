@@ -42,7 +42,37 @@ public class trackOrderController implements Initializable {
         String q=id2.getText();
        String w= status2.getText();
         database.createDatabase("update product set status ='"+w+ "' where pid="+q);
-        table.setItems(list);
+        table.setItems(list);//
+        ResultSet rs=database.createDatabase("select status,wid from worker");
+        int flag=1;
+        try{
+            if(w.equals("in treatment")) {
+                while (rs.next()) {
+                    String status = rs.getString(1);
+                    if (rs.getString(1).equals("available")) {
+                        database.insertIntoDatabase("update worker set status='not available' where wid='"+rs.getString(2)+"'");
+                        database.insertIntoDatabase("insert into WORKONSHINING values(workerShining.nextval,'" + rs.getString(2) + "','" + q + "')");
+                        return;
+                    }
+                }
+                JOptionPane.showMessageDialog(null, "No Worker Available to do this Order !");
+
+
+            }
+            else if(w.equals("complete")){
+                ResultSet rs2= database.createDatabase("select WIDSHINING from WORKONSHINING where PIDSHINING='"+q+"'");
+                rs2.next();
+                database.insertIntoDatabase("update worker set status='available' where wid='"+rs2.getString(1)+"'");
+                ResultSet result1=database.createDatabase("select cid from product where pid="+Integer.parseInt(q));
+                result1.next();
+                ResultSet result2=database.createDatabase("select gmail from customer where cid="+result1.getInt(1));
+                result2.next();
+                Mail m=new Mail();
+                m.RasheedEmail(result2.getString(1));
+            }
+        } catch (Exception e) {
+            System.out.println("iam email when complete");
+        }
     }
     @FXML
     void backClicked(MouseEvent event) {

@@ -1,7 +1,5 @@
 package com.example.software;
 
-import javafx.css.Size;
-
 public class trackOrderTable {
     private int OrderId;
     private int AID;

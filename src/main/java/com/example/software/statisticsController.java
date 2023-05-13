@@ -10,14 +10,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Logger;
 
 public class statisticsController implements Initializable {
     @FXML
@@ -29,18 +31,19 @@ public class statisticsController implements Initializable {
     @FXML
     private PieChart pieChart;
 
+    static Logger logger = Logger.getLogger(HelloController.class.getName());
+
     @FXML
     void backClicked(MouseEvent event) {
         try {
             Parent root;
-            FXMLLoader fxmlLoader;
             root = FXMLLoader.load(getClass().getResource("menu2.fxml"));
             Stage stage = (Stage) back.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
             new FadeIn(root).play();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        }catch (IOException e){
+            logger.log(null," An error occurred while opening a new window:");
         }
     }
     @Override
@@ -53,8 +56,8 @@ public class statisticsController implements Initializable {
             while(r1.next()) workingCount++;
             while(r2.next()) completeCount++;
             while(r3.next()) inTreatmentCount++;
-        }catch (Exception e){
-            throw new RuntimeException(e);
+        } catch (SQLException e) {
+            logger.log(null,"Database connection error: ");
         }
         ObservableList<PieChart.Data>pieChartData= FXCollections.observableArrayList(
                 new PieChart.Data("WORKING",workingCount),

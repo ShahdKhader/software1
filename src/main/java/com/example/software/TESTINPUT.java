@@ -1,7 +1,5 @@
 package com.example.software;
 
-import javafx.css.Size;
-
 public class TESTINPUT {
     public static boolean idTest(String id) {
         if (id.length() == 9) {

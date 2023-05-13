@@ -13,17 +13,12 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-
-import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
-
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 
 public class report implements Initializable{
     static Logger logger = Logger.getLogger(HelloController.class.getName());
@@ -43,15 +38,13 @@ public class report implements Initializable{
     void backClicked(MouseEvent event) {
         try{
             Parent root;
-            FXMLLoader fxmlLoader;
             root = FXMLLoader.load(getClass().getResource("menu2.fxml"));
             Stage stage = (Stage) back.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
             new FadeIn(root).play();
         }catch (IOException e){
-            System.out.println("An error occurred while opening a new window: " + e.getMessage());
-        }
+            logger.log(null," An error occurred while opening a new window:");        }
     }
     @FXML
     ObservableList<reportTable> list1= FXCollections.observableArrayList();

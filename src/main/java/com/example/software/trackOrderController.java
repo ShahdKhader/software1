@@ -13,21 +13,43 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-
 import javax.swing.*;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Logger;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 public class trackOrderController implements Initializable {
+    static Logger logger = Logger.getLogger(HelloController.class.getName());
+
     @FXML
     private TableView<trackOrderTable> table;
     @FXML
-    private TableColumn<trackOrderTable, Integer> AID,CID,Money,OrderId,Quantity;
+    private TableColumn<trackOrderTable, Integer> AID;
     @FXML
-    private TableColumn<trackOrderTable, String> Color,Name,Size,Status;
+    private TableColumn<trackOrderTable, Integer>CID;
+
+    @FXML
+    private TableColumn<trackOrderTable, Integer> Money;
+
+    @FXML
+    private TableColumn<trackOrderTable, Integer> OrderId;
+    @FXML
+    private TableColumn<trackOrderTable, Integer>Quantity;
+
+    @FXML
+    private TableColumn<trackOrderTable, String> Color;
+    @FXML
+    private TableColumn<trackOrderTable, String> Name;
+    @FXML
+    private TableColumn<trackOrderTable, String> Size;
+    @FXML
+    private TableColumn<trackOrderTable, String>Status;
     @FXML
     private Label back;
     @FXML
@@ -42,7 +64,7 @@ public class trackOrderController implements Initializable {
         String q=id2.getText();
        String w= status2.getText();
         database.createDatabase("update product set status ='"+w+ "' where pid="+q);
-        table.setItems(list);//
+        table.setItems(list);
         ResultSet rs=database.createDatabase("select status,wid from worker");
         int flag=1;
         try{
@@ -84,8 +106,8 @@ public class trackOrderController implements Initializable {
             stage.setScene(new Scene(root));
             stage.show();
             new FadeIn(root).play();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        }catch (IOException e){
+            logger.log(null," An error occurred while opening a new window:");
         }
     }
     @FXML
@@ -116,8 +138,8 @@ public class trackOrderController implements Initializable {
                 int money =Integer.parseInt( rs.getString(9));
                 list.add(new trackOrderTable(pid,aid,cid,name,quantity,size,color,status,money));
             }
-        }catch (Exception e){
-            throw new RuntimeException(e);
+        } catch (SQLException e) {
+            logger.log(null,"Database connection error: ");
         }
         table.setItems(list);
 

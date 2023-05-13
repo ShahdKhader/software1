@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 import javafx.fxml.FXML;
 
 import java.io.IOException;
+import java.util.logging.Logger;
 
 public class menu2Controller {
     @FXML
@@ -24,6 +25,7 @@ public class menu2Controller {
     @FXML
     private Label productOperation;
 
+    static Logger logger = Logger.getLogger(HelloController.class.getName());
 
     @FXML
     void ReportClicked(MouseEvent event) {
@@ -35,8 +37,7 @@ public class menu2Controller {
             stage.show();
             new FadeIn(root).play();
         }catch (IOException e){
-            System.out.println("An error occurred while opening a new window: " + e.getMessage());
-        }
+            logger.log(null," An error occurred while opening a new window:");        }
     }
 
     @FXML
@@ -49,8 +50,7 @@ public class menu2Controller {
             stage.show();
             new FadeIn(root).play();
         }catch (IOException e){
-            System.out.println("An error occurred while opening a new window: " + e.getMessage());
-        }
+            logger.log(null," An error occurred while opening a new window:");        }
     }
 
     @FXML
@@ -63,7 +63,7 @@ public class menu2Controller {
             stage.show();
             new FadeIn(root).play();
         }catch (IOException e){
-            System.out.println("An error occurred while opening a new window: " + e.getMessage());
+            logger.log(null," An error occurred while opening a new window:");
         }
     }
     @FXML
@@ -76,8 +76,7 @@ public class menu2Controller {
             stage.show();
             new FadeIn(root).play();
         }catch (IOException e){
-            System.out.println("An error occurred while opening a new window: " + e.getMessage());
-        }
+            logger.log(null," An error occurred while opening a new window:");        }
     }
 
     @FXML
@@ -90,7 +89,6 @@ public class menu2Controller {
             stage.show();
             new FadeIn(root).play();
         }catch (IOException e){
-            System.out.println("An error occurred while opening a new window: " + e.getMessage());
-        }
+            logger.log(null," An error occurred while opening a new window:");        }
     }
 }

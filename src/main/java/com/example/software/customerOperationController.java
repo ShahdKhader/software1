@@ -151,8 +151,7 @@ public class customerOperationController implements Initializable {
             stage.show();
             new FadeIn(root).play();
         }catch (IOException e){
-            System.out.println("An error occurred while opening a new window: " + e.getMessage());
-        }
+            logger.log(null," An error occurred while opening a new window:");        }
     }
 
     @FXML

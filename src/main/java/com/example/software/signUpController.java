@@ -1,9 +1,12 @@
 package com.example.software;
 import animatefx.animation.FadeIn;
 import javafx.fxml.FXML;
-import java.awt.*;
 import javafx.event.ActionEvent;
+
+import java.io.IOException;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Logger;
 
 import javafx.scene.control.PasswordField;
 import javafx.scene.input.MouseEvent;
@@ -18,8 +21,21 @@ import javafx.scene.control.TextField;
 
 
 public class signUpController {
+    static Logger logger = Logger.getLogger(HelloController.class.getName());
+
     @FXML
-    private TextField address,userName,gmail,id,phoneNumber;
+    private TextField address;
+
+    @FXML
+    private TextField userName;
+
+    @FXML
+    private TextField gmail;
+
+    @FXML
+    private TextField id;
+    @FXML
+    private TextField phoneNumber;
 
     @FXML
     private PasswordField password;
@@ -31,14 +47,13 @@ public class signUpController {
     void backClicked(MouseEvent event) {
         try {
             Parent root;
-            FXMLLoader fxmlLoader;
             root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
             Stage stage = (Stage) back.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
             new FadeIn(root).play();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        }catch (IOException e){
+            logger.log(null," An error occurred while opening a new window:");
         }
     }
 
@@ -75,19 +90,18 @@ public class signUpController {
             }
             database.insertIntoDatabase("INSERT INTO CUSTOMER values('" + id.getText() + "','" + phoneNumber.getText() + "','" + address.getText() + "','" + gmail.getText() + "','" + userName.getText() + "','" + password.getText() + "')");
             JOptionPane.showMessageDialog(null, "DONE ", "INSERTED", JOptionPane.INFORMATION_MESSAGE);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        } catch (SQLException e) {
+            logger.log(null,"Database connection error: ");
         }
         try{
             Parent root;
-            FXMLLoader fxmlLoader;
             root = FXMLLoader.load(getClass().getResource("screen3.fxml"));
             Stage stage = (Stage) signUp2.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
             new FadeIn(root).play();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        }catch (IOException e){
+            logger.log(null," An error occurred while opening a new window:");
         }
     }
 }

@@ -14,14 +14,29 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Logger;
 
 public class productOperationController implements Initializable {
-
+    static Logger logger = Logger.getLogger(HelloController.class.getName());
     @FXML
-    private Button UpdateProduct1,addProduct,addProduct1,deleteProduct,deleteProduct1,gitInformation,updateProduct;
+    private Button UpdateProduct1;
+    @FXML
+    private Button addProduct;
+    @FXML
+    private Button addProduct1;
+    @FXML
+    private Button deleteProduct;
+    @FXML
+    private Button deleteProduct1;
+    @FXML
+    private Button gitInformation;
+    @FXML
+    private Button updateProduct;
     @FXML
     private VBox addProductBox,updateProductBox;
 
@@ -38,14 +53,13 @@ public class productOperationController implements Initializable {
     void backClicked(MouseEvent event) {
         try {
             Parent root;
-            FXMLLoader fxmlLoader;
             root = FXMLLoader.load(getClass().getResource("menu2.fxml"));
             Stage stage = (Stage) back.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
             new FadeIn(root).play();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        }catch (IOException e){
+            logger.log(null," An error occurred while opening a new window:");
         }
     }
     @FXML
@@ -101,8 +115,8 @@ public class productOperationController implements Initializable {
               meduimSalaryUpdate1.setText(r.getString(3));
               largeSalaryUpdate1.setText(r.getString(4));
           }
-        }catch(Exception e){
-          throw new RuntimeException(e);
+      } catch (SQLException e) {
+          logger.log(null,"Database connection error: ");
       }
     }
     @Override

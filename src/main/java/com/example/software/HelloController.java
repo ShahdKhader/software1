@@ -70,8 +70,7 @@ public class HelloController {
             logger.log(null,"Database connection error: ");
         }
         catch (IOException e){
-        System.out.println("An error occurred while opening a new window: " + e.getMessage());
-        }
+            logger.log(null," An error occurred while opening a new window:");        }
     }
     @FXML
     void signUp1Clicked(ActionEvent event) {
@@ -83,7 +82,7 @@ public class HelloController {
             stage.show();
             new FadeIn(root).play();
         }catch (IOException e){
-            System.out.println("An error occurred while opening a new window: " + e.getMessage());
+            logger.log(null," An error occurred while opening a new window:");
         }
     }
 

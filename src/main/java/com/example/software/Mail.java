@@ -1,7 +1,5 @@
 package com.example.software;
-
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Properties;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -16,14 +14,9 @@ import javax.mail.internet.MimeMultipart;
 
 public class Mail
 {
-
     Session newSession = null;
     MimeMessage mimeMessage = null;
-
-
-
-
-    public void RasheedEmail(String names) throws MessagingException, IOException {
+    public void rasheedEmail(String names) throws MessagingException, IOException {
         Mail mail = new Mail();
         mail.setupServerProperties();
         mail.draftEmail(names);
@@ -37,7 +30,6 @@ public class Mail
         transport.connect(emailHost, fromUser, fromUserPassword);
         transport.sendMessage(mimeMessage, mimeMessage.getAllRecipients());
         transport.close();
-        System.out.println("Email successfully sent!!!");
     }
 
     private MimeMessage draftEmail(String names) throws AddressException, MessagingException, IOException {

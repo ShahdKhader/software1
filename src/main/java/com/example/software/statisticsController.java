@@ -31,7 +31,7 @@ public class statisticsController implements Initializable {
     @FXML
     private PieChart pieChart;
 
-    static Logger logger = Logger.getLogger(HelloController.class.getName());
+    static Logger logger = Logger.getLogger(statisticsController.class.getName());
 
     @FXML
     void backClicked(MouseEvent event) {

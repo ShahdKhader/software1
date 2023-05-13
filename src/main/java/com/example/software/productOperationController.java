@@ -1,5 +1,4 @@
 package com.example.software;
-
 import animatefx.animation.FadeIn;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,7 +21,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
 public class productOperationController implements Initializable {
-    static Logger logger = Logger.getLogger(HelloController.class.getName());
+    static Logger logger = Logger.getLogger(productOperationController.class.getName());
     @FXML
     private Button UpdateProduct1;
     @FXML

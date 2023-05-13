@@ -25,7 +25,7 @@ public class menu2Controller {
     @FXML
     private Label productOperation;
 
-    static Logger logger = Logger.getLogger(HelloController.class.getName());
+    static Logger logger = Logger.getLogger(menu2Controller.class.getName());
 
     @FXML
     void ReportClicked(MouseEvent event) {

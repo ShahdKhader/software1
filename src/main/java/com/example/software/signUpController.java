@@ -21,7 +21,7 @@ import javafx.scene.control.TextField;
 
 
 public class signUpController {
-    static Logger logger = Logger.getLogger(HelloController.class.getName());
+    static Logger logger = Logger.getLogger(signUpController.class.getName());
 
     @FXML
     private TextField address;

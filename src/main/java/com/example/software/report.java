@@ -21,7 +21,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
 public class report implements Initializable{
-    static Logger logger = Logger.getLogger(HelloController.class.getName());
+    static Logger logger = Logger.getLogger(report.class.getName());
 
     @FXML
     private Label back;

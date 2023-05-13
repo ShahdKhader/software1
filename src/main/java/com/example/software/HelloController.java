@@ -28,7 +28,16 @@ public class HelloController {
     private PasswordField passwordLogIn;
 
     @FXML
-    public static String z;
+    private static String z;
+
+    public static String getZ() {
+        return z;
+    }
+
+    public static void setZ(String z) {
+        HelloController.z = z;
+    }
+
     @FXML
     void login1Clicked(ActionEvent event) {
 
@@ -37,9 +46,9 @@ public class HelloController {
             ResultSet ra=database.createDatabase("select GMAIL,PASSWORD from admin ");
             while (ra.next()){
                 String gmailA = ra.getString(1);
-                String PasswordA = ra.getString(2);
+                String passwordA = ra.getString(2);
                 Parent root;
-                if (gmailLogIn.getText().equals(gmailA) && passwordLogIn.getText().equals(PasswordA)) {
+                if (gmailLogIn.getText().equals(gmailA) && passwordLogIn.getText().equals(passwordA)) {
                     root = FXMLLoader.load(getClass().getResource("menu2.fxml"));
                     Stage stage = (Stage) login1.getScene().getWindow();
                     stage.setScene(new Scene(root));
@@ -50,13 +59,13 @@ public class HelloController {
             }
             while (rs.next()) {
                 String gmail = rs.getString(1);
-                String Password = rs.getString(2);
+                String password = rs.getString(2);
                 Parent root;
-              if (gmailLogIn.getText().equals(gmail) && !passwordLogIn.getText().equals(Password)) {
+              if (gmailLogIn.getText().equals(gmail) && !passwordLogIn.getText().equals(password)) {
                     JOptionPane.showMessageDialog(null, "Incorrect Password");
                     return;}
-                else if (gmailLogIn.getText().equals(gmail) && passwordLogIn.getText().equals(Password)) {
-                    z=gmailLogIn.getText();
+                else if (gmailLogIn.getText().equals(gmail) && passwordLogIn.getText().equals(password)) {
+                    setZ(gmailLogIn.getText());
                     root = FXMLLoader.load(getClass().getResource("Screen2.fxml"));
                     Stage stage = (Stage) login1.getScene().getWindow();
                     stage.setScene(new Scene(root));

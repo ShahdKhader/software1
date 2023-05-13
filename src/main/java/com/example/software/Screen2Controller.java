@@ -27,10 +27,13 @@ import javafx.scene.control.TextField;
 import java.util.logging.Logger;
 
 public class Screen2Controller implements Initializable {
-    static Logger logger = Logger.getLogger(HelloController.class.getName());
+    static Logger logger = Logger.getLogger(Screen2Controller.class.getName());
 
     @FXML
-    private TextField colorscreen2,quantityscreen2;
+    private TextField colorscreen2;
+
+    @FXML
+    private TextField quantityscreen2;
     @FXML
     private Label back;
     @FXML
@@ -45,13 +48,71 @@ public class Screen2Controller implements Initializable {
     private Button save;
     @FXML
     private ImageView orderPicture;
-    public static String customerEnteredId2;
-    public int discount;
-    public static String name;
-    public static String quantity;
-    public static String size;
-    public static String color;
-    public static  int money=0;
+    private static String customerEnteredId2;
+
+    public static String getCustomerEnteredId2() {
+        return customerEnteredId2;
+    }
+
+    public static void setCustomerEnteredId2(String customerEnteredId2) {
+        Screen2Controller.customerEnteredId2 = customerEnteredId2;
+    }
+
+    private int discount;
+    private static String name;
+    private static String quantity;
+    private static String size;
+    private static String color;
+
+    public int getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(int discount) {
+        this.discount = discount;
+    }
+
+    public static String getName() {
+        return name;
+    }
+
+    public static void setName(String name) {
+        Screen2Controller.name = name;
+    }
+
+    public static String getQuantity() {
+        return quantity;
+    }
+
+    public static void setQuantity(String quantity) {
+        Screen2Controller.quantity = quantity;
+    }
+
+    public static String getSize() {
+        return size;
+    }
+
+    public static void setSize(String size) {
+        Screen2Controller.size = size;
+    }
+
+    public static String getColor() {
+        return color;
+    }
+
+    public static void setColor(String color) {
+        Screen2Controller.color = color;
+    }
+
+    public static int getMoney() {
+        return money;
+    }
+
+    public static void setMoney(int money) {
+        Screen2Controller.money = money;
+    }
+
+    private static  int money=0;
     public static ImageView orderPic;
     @FXML
     void backClicked(MouseEvent event) {
@@ -77,13 +138,11 @@ public class Screen2Controller implements Initializable {
         else if(!TESTINPUT.orderColorTest(colorscreen2.getText())) JOptionPane.showMessageDialog(null,"Unvalied Color","ERROR",JOptionPane.ERROR_MESSAGE);
     else {
         HelloController h=new HelloController();
-       String x= h.z;
-            System.out.println(x);
+       String x= h.getZ();
         ResultSet customerEnteredId= database.createDatabase("select CID from CUSTOMER where GMAIL ="+"'"+x+"'");
         try{
             while (customerEnteredId.next()) {
-                customerEnteredId2 = customerEnteredId.getString(1);
-                System.out.println(customerEnteredId2);
+                setCustomerEnteredId2(customerEnteredId.getString(1));
             }
         } catch (SQLException e) {
             logger.log(null,"Database connection error: ");

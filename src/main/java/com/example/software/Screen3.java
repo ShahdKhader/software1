@@ -18,7 +18,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
 public class Screen3 implements Initializable {
-    static Logger logger = Logger.getLogger(HelloController.class.getName());
+    static Logger logger = Logger.getLogger(Screen3.class.getName());
 
     @FXML
     private ImageView invoicePicture;
@@ -65,7 +65,7 @@ public class Screen3 implements Initializable {
        colorLabel.setText(Screen2Controller.color);
        invoicePicture.setImage(Screen2Controller.orderPic.getImage());
        priceLabel.setText(String.valueOf(Screen2Controller.money));
-       ResultSet r=database.createDatabase("select * from product where cid='"+Screen2Controller.customerEnteredId2+"'");
+       ResultSet r=database.createDatabase("select * from product where cid='"+Screen2Controller.getCustomerEnteredId2()+"'");
        int count=0;
        try{
            while (r.next())count+=Integer.parseInt(r.getString(5));

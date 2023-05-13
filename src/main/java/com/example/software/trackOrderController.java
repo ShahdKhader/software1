@@ -25,7 +25,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 public class trackOrderController implements Initializable {
-    static Logger logger = Logger.getLogger(HelloController.class.getName());
+    static Logger logger = Logger.getLogger(trackOrderController.class.getName());
 
     @FXML
     private TableView<trackOrderTable> table;
@@ -90,7 +90,7 @@ public class trackOrderController implements Initializable {
                 ResultSet result2=database.createDatabase("select gmail from customer where cid="+result1.getInt(1));
                 result2.next();
                 Mail m=new Mail();
-                m.RasheedEmail(result2.getString(1));
+                m.rasheedEmail(result2.getString(1));
             }
         } catch (Exception e) {
             System.out.println("iam email when complete");

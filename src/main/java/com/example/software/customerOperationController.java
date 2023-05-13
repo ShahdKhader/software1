@@ -24,7 +24,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
 public class customerOperationController implements Initializable {
-    static Logger logger = Logger.getLogger(HelloController.class.getName());
+    static Logger logger = Logger.getLogger(customerOperationController.class.getName());
 
     @FXML
     private Button add;

@@ -13,12 +13,6 @@ import javax.swing.*;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import java.util.logging.ConsoleHandler;
-import java.util.logging.FileHandler;
-import java.util.logging.Handler;
-import java.util.logging.Level;
-import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
 
@@ -74,7 +68,7 @@ public class HelloController {
             }
             JOptionPane.showMessageDialog(null, "Incorrect Gmail");
         } catch (SQLException e) {
-            logger.log(null,"Database connection error: " + e.getMessage());
+            logger.log(null,"Database connection error: ");
         }
         catch (IOException e){
         System.out.println("An error occurred while opening a new window: " + e.getMessage());

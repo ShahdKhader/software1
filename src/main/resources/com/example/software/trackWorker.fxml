@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.software.TrackWorker">
+   <children>
+      <AnchorPane prefHeight="500.0" prefWidth="750.0" styleClass="back" stylesheets="@accessories/screen2.css">
+         <children>
+            <ImageView fitHeight="91.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@accessories/Logo22.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="91.0" layoutY="20.0" prefHeight="51.0" prefWidth="166.0" text="Shiny Carpet" textFill="#bc4e2a">
+               <font>
+                  <Font name="System Bold Italic" size="24.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets left="60.0" />
+               </opaqueInsets>
+            </Label>
+            <Label layoutX="247.0" layoutY="64.0" prefHeight="54.0" prefWidth="278.0" text="Track Worker" textFill="#bc4e2a">
+               <font>
+                  <Font name="System Bold Italic" size="36.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets left="60.0" />
+               </opaqueInsets>
+            </Label>
+            <Label fx:id="back" layoutX="683.0" layoutY="14.0" onMouseClicked="#backClicked" prefHeight="35.0" prefWidth="68.0" text="Back " textFill="#bc4e2a">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets left="60.0" />
+               </opaqueInsets>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <HBox layoutX="57.0" layoutY="127.0" prefHeight="35.0" prefWidth="626.0">
+               <children>
+                  <Label prefHeight="30.0" prefWidth="74.0" text="Order Id" textFill="#bc4e2a">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets left="60.0" />
+                     </opaqueInsets>
+                  </Label>
+                  <TextField fx:id="orderIdW" prefHeight="23.0" prefWidth="126.0">
+                     <opaqueInsets>
+                        <Insets bottom="10.0" top="50.0" />
+                     </opaqueInsets>
+                  </TextField>
+                  <Label prefHeight="30.0" prefWidth="14.0" textFill="#bc4e2a">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets left="60.0" />
+                     </opaqueInsets>
+                  </Label>
+                  <Label prefHeight="30.0" prefWidth="98.0" text="Worker Id" textFill="#bc4e2a">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets left="60.0" />
+                     </opaqueInsets>
+                  </Label>
+                  <TextField fx:id="workerId" prefHeight="26.0" prefWidth="126.0">
+                     <opaqueInsets>
+                        <Insets bottom="10.0" top="50.0" />
+                     </opaqueInsets>
+                  </TextField>
+                  <Label prefHeight="30.0" prefWidth="14.0" textFill="#bc4e2a">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets left="60.0" />
+                     </opaqueInsets>
+                  </Label>
+                  <Button fx:id="track" mnemonicParsing="false" onMouseClicked="#trackClicked" prefHeight="26.0" prefWidth="47.0" style="-fx-background-color: #ead5d5;" text="✅" textFill="#030000">
+                     <opaqueInsets>
+                        <Insets left="30.0" />
+                     </opaqueInsets>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </HBox>
+            <TableView fx:id="table" layoutX="57.0" layoutY="162.0" prefHeight="302.0" prefWidth="602.0">
+               <columns>
+                  <TableColumn fx:id="WID" prefWidth="90.0" text="WID" />
+                  <TableColumn fx:id="AID" prefWidth="90.0" text="AID" />
+                  <TableColumn fx:id="phoneNumber" prefWidth="90.0" text="Phone Number" />
+                  <TableColumn fx:id="address" prefWidth="90.0" text="Address" />
+                  <TableColumn fx:id="userName" prefWidth="90.0" text="User Name" />
+                  <TableColumn fx:id="password" prefWidth="90.0" text="Password" />
+                  <TableColumn fx:id="hours" prefWidth="90.0" text="Hours" />
+                  <TableColumn fx:id="Status" prefWidth="90.0" text="Status" />
+               </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -1,6 +1,7 @@
-.vbox-background-center{
--fx-background-image:url("signin1.jpg")
+
+.back{
+-fx-background-image:url("n.jpg");
 }
-.vbox-background-right{
--fx-background-image:url("signin2.jpg")
+.bubble{
+-fx-background-image:url("bubble3.jpg");
 }

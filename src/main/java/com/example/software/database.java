@@ -10,9 +10,13 @@ import oracle.jdbc.pool.OracleDataSource;
 import javax.swing.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Logger;
 
 public class database {
+    static Logger logger = Logger.getLogger(HelloController.class.getName());
+
     public static ResultSet createDatabase(String string) {
         try {
             OracleDataSource ods = new OracleDataSource();
@@ -23,9 +27,10 @@ public class database {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(string);
             return rs;
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        } catch (SQLException e) {
+            logger.log(null,"Database connection error: ");
         }
+        return null;
     }
 
     public static void insertIntoDatabase(String string) {
@@ -37,8 +42,8 @@ public class database {
             Connection con = ods.getConnection();
             Statement stmt = con.createStatement();
             stmt.executeUpdate(string);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        } catch (SQLException e) {
+            logger.log(null,"Database connection error: ");
         }
     }
 

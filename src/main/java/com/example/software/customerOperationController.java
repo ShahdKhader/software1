@@ -16,19 +16,53 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import javax.swing.*;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Logger;
 
 public class customerOperationController implements Initializable {
+    static Logger logger = Logger.getLogger(HelloController.class.getName());
 
     @FXML
-    private Button add,add2,delete,delete2,update,update2;
+    private Button add;
+    @FXML
+    private Button add2;
+    @FXML
+    private Button delete;
+    @FXML
+    private Button delete2;
+    @FXML
+    private Button update;
+    @FXML
+    private Button update2;
 
     @FXML
     private VBox addBox,updateBox;
     @FXML
-    private TextField address,address1,customerIdDelete,gmail,gmail1,id,id1,phoneNumber,phoneNumber1,userName,userName1;
+    private TextField address;
+    @FXML
+    private TextField address1;
+    @FXML
+    private TextField customerIdDelete;
+    @FXML
+    private TextField gmail;
+    @FXML
+    private TextField gmail1;
+    @FXML
+    private TextField id;
+    @FXML
+    private TextField id1;
+    @FXML
+    private TextField phoneNumber;
+    @FXML
+    private TextField phoneNumber1;
+    @FXML
+    private TextField userName;
+    @FXML
+    private TextField userName1;
 
     @FXML
     private Label back;
@@ -54,13 +88,12 @@ public class customerOperationController implements Initializable {
                 userName1.setText(r.getString(5));
                 password1.setText(r.getString(6));
             }
-        }catch(Exception e){
-            throw new RuntimeException(e);
+        } catch (SQLException e) {
+            logger.log(null,"Database connection error: ");
         }
     }
     @FXML
     void add2Clicked(MouseEvent event) {
-        //as sign up
         try {
             if (!TESTINPUT.idTest(id.getText())){
                 JOptionPane.showMessageDialog(null, "wrong id !", "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -93,8 +126,8 @@ public class customerOperationController implements Initializable {
                 database.insertIntoDatabase("INSERT INTO CUSTOMER values('" + id.getText() + "','" + phoneNumber.getText() + "','" + address.getText() + "','" + gmail.getText() + "','" + userName.getText() + "','" + password.getText() + "')");
                 JOptionPane.showMessageDialog(null, "DONE ", "INSERTED", JOptionPane.INFORMATION_MESSAGE);
                 addBox.setVisible(false);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        } catch (SQLException e) {
+            logger.log(null,"Database connection error: ");
         }
     }
 
@@ -117,8 +150,8 @@ public class customerOperationController implements Initializable {
             stage.setScene(new Scene(root));
             stage.show();
             new FadeIn(root).play();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        }catch (IOException e){
+            System.out.println("An error occurred while opening a new window: " + e.getMessage());
         }
     }
 
@@ -176,9 +209,9 @@ public class customerOperationController implements Initializable {
                 +"where CID='"+r+"'");
         JOptionPane.showMessageDialog(null, "DONE ", "INSERTED", JOptionPane.INFORMATION_MESSAGE);
         updateBox.setVisible(false);
-    } catch (Exception e) {
-        throw new RuntimeException(e);
-    }
+        } catch (SQLException e) {
+            logger.log(null,"Database connection error: ");
+        }
     }
 
     @FXML

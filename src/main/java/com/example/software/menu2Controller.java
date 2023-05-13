@@ -10,37 +10,32 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
 
-public class menu2Controller {
+import java.io.IOException;
 
+public class menu2Controller {
     @FXML
-    private Label AvailableWorker,Statistics,Trackorder,Report,customerOperation,productOperation;
+    private Label Statistics;
     @FXML
-    void AvailableWorkerClicked(MouseEvent event) {
-        try{
-            Parent root;
-            FXMLLoader fxmlLoader;
-            root = FXMLLoader.load(getClass().getResource("availableWorker.fxml"));
-            Stage stage = (Stage) AvailableWorker.getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.show();
-            new FadeIn(root).play();
-        }catch (Exception e){
-            throw new RuntimeException(e);
-        }
-    }
+    private Label Trackorder;
+    @FXML
+    private Label Report;
+    @FXML
+    private Label customerOperation;
+    @FXML
+    private Label productOperation;
+
 
     @FXML
     void ReportClicked(MouseEvent event) {
         try{
             Parent root;
-            FXMLLoader fxmlLoader;
             root = FXMLLoader.load(getClass().getResource("report.fxml"));
             Stage stage = (Stage) Report.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
             new FadeIn(root).play();
-        }catch (Exception e){
-            throw new RuntimeException(e);
+        }catch (IOException e){
+            System.out.println("An error occurred while opening a new window: " + e.getMessage());
         }
     }
 
@@ -48,14 +43,13 @@ public class menu2Controller {
     void StatisticsClicked(MouseEvent event) {
         try{
             Parent root;
-            FXMLLoader fxmlLoader;
             root = FXMLLoader.load(getClass().getResource("statistics.fxml"));
             Stage stage = (Stage) Statistics.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
             new FadeIn(root).play();
-        }catch (Exception e){
-            throw new RuntimeException(e);
+        }catch (IOException e){
+            System.out.println("An error occurred while opening a new window: " + e.getMessage());
         }
     }
 
@@ -63,28 +57,26 @@ public class menu2Controller {
     void TrackOrderClicked(MouseEvent event) {
         try{
             Parent root;
-            FXMLLoader fxmlLoader;
             root = FXMLLoader.load(getClass().getResource("trackOrder.fxml"));
             Stage stage = (Stage) Trackorder.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
             new FadeIn(root).play();
-        }catch (Exception e){
-            throw new RuntimeException(e);
+        }catch (IOException e){
+            System.out.println("An error occurred while opening a new window: " + e.getMessage());
         }
     }
     @FXML
     void customerOperationClicked(MouseEvent event) {
         try{
             Parent root;
-            FXMLLoader fxmlLoader;
             root = FXMLLoader.load(getClass().getResource("customerOperation.fxml"));
             Stage stage = (Stage) customerOperation.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
             new FadeIn(root).play();
-        }catch (Exception e){
-            throw new RuntimeException(e);
+        }catch (IOException e){
+            System.out.println("An error occurred while opening a new window: " + e.getMessage());
         }
     }
 
@@ -92,14 +84,13 @@ public class menu2Controller {
     void productOperationClicked(MouseEvent event) {
         try{
             Parent root;
-            FXMLLoader fxmlLoader;
             root = FXMLLoader.load(getClass().getResource("productOperation.fxml"));
             Stage stage = (Stage) productOperation.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
             new FadeIn(root).play();
-        }catch (Exception e){
-            throw new RuntimeException(e);
+        }catch (IOException e){
+            System.out.println("An error occurred while opening a new window: " + e.getMessage());
         }
     }
 }

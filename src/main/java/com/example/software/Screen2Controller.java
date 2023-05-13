@@ -19,7 +19,9 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import animatefx.animation.FadeIn;
 import javafx.fxml.FXML;
@@ -34,7 +36,11 @@ import javafx.stage.Stage;
 import javax.swing.*;
 import javafx.scene.control.TextField;
 import java.lang.String.*;
+import java.util.logging.Logger;
+
 public class Screen2Controller implements Initializable {
+    static Logger logger = Logger.getLogger(HelloController.class.getName());
+
     @FXML
     private TextField colorscreen2,quantityscreen2;
     @FXML
@@ -64,8 +70,8 @@ public class Screen2Controller implements Initializable {
             stage.setScene(new Scene(root));
             stage.show();
             new FadeIn(root).play();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        }catch (IOException e){
+            System.out.println("An error occurred while opening a new window: " + e.getMessage());
         }
     }
     @FXML
@@ -87,8 +93,8 @@ public class Screen2Controller implements Initializable {
                 customerEnteredId2 = customerEnteredId.getString(1);
                 System.out.println(customerEnteredId2);
             }
-        }catch (Exception e){
-            throw new RuntimeException(e);
+        } catch (SQLException e) {
+            logger.log(null,"Database connection error: ");
         }
         String type= namescreen2.getValue();
        if(sizescreen2.getValue().equals("SMALL")) {
@@ -104,8 +110,8 @@ public class Screen2Controller implements Initializable {
                 try{
                     r.next();
                     money=Integer.parseInt(quantityscreen2.getText())*Integer.parseInt(r.getString(1));
-                }catch (Exception e){
-                    throw new RuntimeException(e);
+                } catch (SQLException e) {
+                    logger.log(null,"Database connection error: ");
                 }
 
          database.insertIntoDatabase("insert into PRODUCT values(productSequence1.nextval,'"+ "407222222"+"','"+customerEnteredId2+ "','"+namescreen2.getValue()+"','" +
@@ -124,9 +130,9 @@ public class Screen2Controller implements Initializable {
             stage.setScene(new Scene(root));
             stage.show();
             new FadeIn(root).play();
-        }catch (Exception e){
-            throw new RuntimeException(e);
-        }
+            }catch (IOException e){
+                System.out.println("An error occurred while opening a new window: " + e.getMessage());
+            }
 
 
     }
@@ -156,8 +162,8 @@ public class Screen2Controller implements Initializable {
             while (r.next()) {
                 o.add(r.getString(1));
             }
-        }catch (Exception e){
-            throw new RuntimeException(e);
+        } catch (SQLException e) {
+            logger.log(null,"Database connection error: ");
         }
         namescreen2.setItems(o);
         sizescreen2.setItems(FXCollections.observableArrayList("SMALL","MEDUIM","LARGE"));

@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 
 
 public class HelloController {
-    static Logger logger = Logger.getLogger(HelloController.class.getName());
+   static Logger logger = Logger.getLogger(HelloController.class.getName());
     @FXML
     public TextField gmailLogIn;
     @FXML
@@ -33,7 +33,6 @@ public class HelloController {
     void login1Clicked(ActionEvent event) {
 
         try {
-            int flag=0;
             ResultSet rs = database.createDatabase("select GMAIL,PASSWORD from CUSTOMER");
             ResultSet ra=database.createDatabase("select GMAIL,PASSWORD from admin ");
             while (ra.next()){

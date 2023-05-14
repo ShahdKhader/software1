@@ -48,7 +48,9 @@ public class StatisticsController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        int workingCount=0,completeCount=0,inTreatmentCount=0;
+        int workingCount=0;
+        int completeCount=0;
+        int inTreatmentCount=0;
         ResultSet r1= Database.createDatabase("select * from PRODUCT where status='working'");
         ResultSet r2= Database.createDatabase("select * from PRODUCT where status='complete'");
         ResultSet r3= Database.createDatabase("select * from PRODUCT where status='in treatment'");

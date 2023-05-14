@@ -23,7 +23,7 @@ import java.util.logging.Logger;
 public class ProductOperationController implements Initializable {
     static Logger logger = Logger.getLogger(ProductOperationController.class.getName());
     @FXML
-    private Button UpdateProduct1;
+    private Button updateProduct1;
     @FXML
     private Button addProduct;
     @FXML
@@ -37,15 +37,32 @@ public class ProductOperationController implements Initializable {
     @FXML
     private Button updateProduct;
     @FXML
-    private VBox addProductBox,updateProductBox;
+    private VBox addProductBox;
+    @FXML
+    private VBox updateProductBox;
 
     @FXML
     private Label back;
     @FXML
     private HBox deleteBox;
     @FXML
-    private TextField productNameAdd1,smallSalaryAdd1,meduimSalaryAdd1,largeSalaryAdd1,
-            productNameUpdate1,productNameUpdate1After,smallSalaryUpdate1,meduimSalaryUpdate1,largeSalaryUpdate1;
+    private TextField productNameAdd1;
+    @FXML
+    private TextField smallSalaryAdd1;
+    @FXML
+    private TextField meduimSalaryAdd1;
+    @FXML
+    private TextField largeSalaryAdd1;
+    @FXML
+    private TextField productNameUpdate1;
+    @FXML
+    private TextField productNameUpdate1After;
+    @FXML
+    private TextField smallSalaryUpdate1;
+    @FXML
+    private TextField meduimSalaryUpdate1;
+    @FXML
+    private TextField largeSalaryUpdate1;
     @FXML
     private TextField productNameDelete1;
     @FXML

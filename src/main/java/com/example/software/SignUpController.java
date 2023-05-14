@@ -43,6 +43,7 @@ public class SignUpController {
     private Label back;
     @FXML
     private Button signUp2;
+    private String e="ERROR";
     @FXML
     void backClicked(MouseEvent event) {
         try {
@@ -61,30 +62,30 @@ public class SignUpController {
     void signUp2Clicked(ActionEvent event) {
         try {
             if (!TESTINPUT.idTest(id.getText())) {
-                JOptionPane.showMessageDialog(null, "wrong id !", "ERROR", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "wrong id !", e, JOptionPane.ERROR_MESSAGE);
                 return;
             } else if (!TESTINPUT.passwordTest(password.getText())) {
-                JOptionPane.showMessageDialog(null, "wrong PASSWORD !", "ERROR", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "wrong PASSWORD !", e, JOptionPane.ERROR_MESSAGE);
                 return;
             } else if (!TESTINPUT.phoneNumberTest(phoneNumber.getText())) {
-                JOptionPane.showMessageDialog(null, "wrong PHONE NUMBER !", "ERROR", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "wrong PHONE NUMBER !", e, JOptionPane.ERROR_MESSAGE);
                 return;
             } else if (!TESTINPUT.gmailTest(gmail.getText())) {
-                JOptionPane.showMessageDialog(null, "wrong GMAIL !", "ERROR", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "wrong GMAIL !", e, JOptionPane.ERROR_MESSAGE);
                 return;
             } else if (id.getText().isEmpty() || phoneNumber.getText().isEmpty() || gmail.getText().isEmpty() || userName.getText().isEmpty() || password.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Field is Empty", "ERROR", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Field is Empty", e, JOptionPane.ERROR_MESSAGE);
                 return;
             }
             ResultSet rs = Database.createDatabase("select CID,USERNAME,PASSWORD from customer");
             while (rs.next()) {
-                String ID = rs.getString(1);
-                String USERNAME = rs.getString(2);
-                if (ID.equals(id.getText())) {
-                    JOptionPane.showMessageDialog(null, "The ID is already contains", "ERROR", JOptionPane.ERROR_MESSAGE);
+                String idup = rs.getString(1);
+                String usernameup = rs.getString(2);
+                if (idup.equals(id.getText())) {
+                    JOptionPane.showMessageDialog(null, "The ID is already contains", e, JOptionPane.ERROR_MESSAGE);
                     return;
-                } else if (USERNAME.equals(userName.getText())) {
-                    JOptionPane.showMessageDialog(null, "The USERNAME is already contains", "ERROR", JOptionPane.ERROR_MESSAGE);
+                } else if (usernameup.equals(userName.getText())) {
+                    JOptionPane.showMessageDialog(null, "The USERNAME is already contains", e, JOptionPane.ERROR_MESSAGE);
                     return;
                 }
             }

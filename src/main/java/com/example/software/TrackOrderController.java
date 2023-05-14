@@ -30,26 +30,26 @@ public class TrackOrderController implements Initializable {
     @FXML
     private TableView<TrackOrderTable> table;
     @FXML
-    private TableColumn<TrackOrderTable, Integer> AID;
+    private TableColumn<TrackOrderTable, Integer> aid1;
     @FXML
-    private TableColumn<TrackOrderTable, Integer>CID;
+    private TableColumn<TrackOrderTable, Integer>cid1;
 
     @FXML
-    private TableColumn<TrackOrderTable, Integer> Money;
+    private TableColumn<TrackOrderTable, Integer> money1;
 
     @FXML
-    private TableColumn<TrackOrderTable, Integer> OrderId;
+    private TableColumn<TrackOrderTable, Integer> orderId1;
     @FXML
-    private TableColumn<TrackOrderTable, Integer>Quantity;
+    private TableColumn<TrackOrderTable, Integer>quantity1;
 
     @FXML
-    private TableColumn<TrackOrderTable, String> Color;
+    private TableColumn<TrackOrderTable, String> color1;
     @FXML
-    private TableColumn<TrackOrderTable, String> Name;
+    private TableColumn<TrackOrderTable, String> name1;
     @FXML
-    private TableColumn<TrackOrderTable, String> Size;
+    private TableColumn<TrackOrderTable, String> size1;
     @FXML
-    private TableColumn<TrackOrderTable, String>Status;
+    private TableColumn<TrackOrderTable, String>status1;
     @FXML
     private Label back;
     @FXML
@@ -66,11 +66,9 @@ public class TrackOrderController implements Initializable {
         Database.createDatabase("update product set status ='"+w+ "' where pid="+q);
         table.setItems(list);
         ResultSet rs= Database.createDatabase("select status,wid from worker");
-        int flag=1;
         try{
             if(w.equals("in treatment")) {
                 while (rs.next()) {
-                    String status = rs.getString(1);
                     if (rs.getString(1).equals("available")) {
                         Database.insertIntoDatabase("update worker set status='not available' where wid='"+rs.getString(2)+"'");
                         Database.insertIntoDatabase("insert into WORKONSHINING values(workerShining.nextval,'" + rs.getString(2) + "','" + q + "')");
@@ -100,7 +98,6 @@ public class TrackOrderController implements Initializable {
     void backClicked(MouseEvent event) {
         try {
             Parent root;
-            FXMLLoader fxmlLoader;
             root = FXMLLoader.load(getClass().getResource("menu2.fxml"));
             Stage stage = (Stage) back.getScene().getWindow();
             stage.setScene(new Scene(root));
@@ -115,15 +112,15 @@ public class TrackOrderController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        OrderId.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,Integer>("OrderId"));
-        AID.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,Integer>("AID"));
-        CID.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,Integer>("CID"));
-        Quantity.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,Integer>("Quantity"));
-        Money.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,Integer>("Money"));
-        Name.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,String>("Name"));
-        Size.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,String>("Size"));
-        Color.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,String>("Color"));
-        Status.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,String>("Status"));
+        orderId1.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,Integer>("OrderId"));
+        aid1.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,Integer>("AID"));
+        cid1.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,Integer>("CID"));
+        quantity1.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,Integer>("Quantity"));
+        money1.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,Integer>("Money"));
+        name1.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,String>("Name"));
+        size1.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,String>("Size"));
+        color1.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,String>("Color"));
+        status1.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,String>("Status"));
             ResultSet rs = Database.createDatabase("select * from PRODUCT");
         try {
             while (rs.next()) {

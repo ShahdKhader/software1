@@ -40,7 +40,9 @@ public class CustomerOperationController implements Initializable {
     private Button update2;
 
     @FXML
-    private VBox addBox,updateBox;
+    private VBox addBox;
+    @FXML
+    private VBox updateBox;
     @FXML
     private TextField address;
     @FXML
@@ -76,6 +78,10 @@ public class CustomerOperationController implements Initializable {
 
     @FXML
     private Button gitInformation;
+    private String m="Database connection error: ";
+    private String e="ERROR";
+    private String d="DONE";
+    private String i="INSERTED";
     @FXML
     void gitInformationClicked(MouseEvent event) {
         ResultSet r= Database.createDatabase("select * from customer where CID='"+id1.getText()+"'");
@@ -89,45 +95,45 @@ public class CustomerOperationController implements Initializable {
                 password1.setText(r.getString(6));
             }
         } catch (SQLException e) {
-            logger.log(null,"Database connection error: ");
+            logger.log(null,m);
         }
     }
     @FXML
     void add2Clicked(MouseEvent event) {
         try {
             if (!TESTINPUT.idTest(id.getText())){
-                JOptionPane.showMessageDialog(null, "wrong id !", "ERROR", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "wrong id !", e, JOptionPane.ERROR_MESSAGE);
             return;}
             else if (!TESTINPUT.passwordTest(password.getText())){
-                JOptionPane.showMessageDialog(null, "wrong PASSWORD !", "ERROR", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "wrong PASSWORD !", e, JOptionPane.ERROR_MESSAGE);
                 return;}
             else if (!TESTINPUT.phoneNumberTest(phoneNumber.getText())){
-                JOptionPane.showMessageDialog(null, "wrong PHONE NUMBER !", "ERROR", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "wrong PHONE NUMBER !", e, JOptionPane.ERROR_MESSAGE);
                 return;}
             else if (!TESTINPUT.gmailTest(gmail.getText())){
-                JOptionPane.showMessageDialog(null, "wrong GMAIL !", "ERROR", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "wrong GMAIL !", e, JOptionPane.ERROR_MESSAGE);
                 return;}
             else if (id.getText().isEmpty() || phoneNumber.getText().isEmpty() || gmail.getText().isEmpty() || userName.getText().isEmpty() || password.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Field is Empty", "ERROR", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Field is Empty", e, JOptionPane.ERROR_MESSAGE);
                 return;
             }
             ResultSet rs = Database.createDatabase("select CID,USERNAME,PASSWORD from customer");
             while (rs.next()) {
-                String ID = rs.getString(1);
-                String USERNAME = rs.getString(2);
-                if (ID.equals(id.getText())) {
-                    JOptionPane.showMessageDialog(null, "The ID is already contains", "ERROR", JOptionPane.ERROR_MESSAGE);
+                String id2 = rs.getString(1);
+                String username2 = rs.getString(2);
+                if (id2.equals(id.getText())) {
+                    JOptionPane.showMessageDialog(null, "The ID is already contains", e, JOptionPane.ERROR_MESSAGE);
                     return;
-                } else if (USERNAME.equals(userName.getText())) {
-                    JOptionPane.showMessageDialog(null, "The USERNAME is already contains", "ERROR", JOptionPane.ERROR_MESSAGE);
+                } else if (username2.equals(userName.getText())) {
+                    JOptionPane.showMessageDialog(null, "The USERNAME is already contains", e, JOptionPane.ERROR_MESSAGE);
                     return;
                 }
             }
                 Database.insertIntoDatabase("INSERT INTO CUSTOMER values('" + id.getText() + "','" + phoneNumber.getText() + "','" + address.getText() + "','" + gmail.getText() + "','" + userName.getText() + "','" + password.getText() + "')");
-                JOptionPane.showMessageDialog(null, "DONE ", "INSERTED", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, d, i, JOptionPane.INFORMATION_MESSAGE);
                 addBox.setVisible(false);
         } catch (SQLException e) {
-            logger.log(null,"Database connection error: ");
+            logger.log(null,m);
         }
     }
 
@@ -144,7 +150,6 @@ public class CustomerOperationController implements Initializable {
     void backClicked(MouseEvent event) {
         try {
             Parent root;
-            FXMLLoader fxmlLoader;
             root = FXMLLoader.load(getClass().getResource("menu2.fxml"));
             Stage stage = (Stage) back.getScene().getWindow();
             stage.setScene(new Scene(root));
@@ -159,7 +164,7 @@ public class CustomerOperationController implements Initializable {
         if(customerIdDelete.getText().isEmpty()) JOptionPane.showMessageDialog(null, "Please Fill Id Customer First !", "ERROR", JOptionPane.ERROR_MESSAGE);
         else {
             Database.insertIntoDatabase("delete from customer where cid ='"+customerIdDelete.getText()+"'");
-            JOptionPane.showMessageDialog(null, "DONE ", "INSERTED", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, d, i, JOptionPane.INFORMATION_MESSAGE);
             deleteBox.setVisible(false);
         }
     }
@@ -176,19 +181,19 @@ public class CustomerOperationController implements Initializable {
         String r=id1.getText();
         try {
             if (!TESTINPUT.idTest(id1.getText())){
-                JOptionPane.showMessageDialog(null, "wrong id !", "ERROR", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "wrong id !", "e", JOptionPane.ERROR_MESSAGE);
                 return;}
             else if (!TESTINPUT.passwordTest(password1.getText())){
-                JOptionPane.showMessageDialog(null, "wrong PASSWORD !", "ERROR", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "wrong PASSWORD !", "e", JOptionPane.ERROR_MESSAGE);
                 return;}
             else if (!TESTINPUT.phoneNumberTest(phoneNumber1.getText())){
-                JOptionPane.showMessageDialog(null, "wrong PHONE NUMBER !", "ERROR", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "wrong PHONE NUMBER !", "e", JOptionPane.ERROR_MESSAGE);
                 return;}
             else if (!TESTINPUT.gmailTest(gmail1.getText())){
-                JOptionPane.showMessageDialog(null, "wrong GMAIL !", "ERROR", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "wrong GMAIL !", "e", JOptionPane.ERROR_MESSAGE);
                 return;}
             else if (id1.getText().isEmpty() || phoneNumber1.getText().isEmpty() || gmail1.getText().isEmpty() || userName1.getText().isEmpty() || password1.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Field is Empty", "ERROR", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Field is Empty", "e", JOptionPane.ERROR_MESSAGE);
                 return;
             }
             ResultSet rs = Database.createDatabase("select CID,USERNAME,PASSWORD from customer");
@@ -196,20 +201,20 @@ public class CustomerOperationController implements Initializable {
                 String ID = rs.getString(1);
                 String USERNAME = rs.getString(2);
                 if (ID.equals(id.getText())) {
-                    JOptionPane.showMessageDialog(null, "The ID is already contains", "ERROR", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "The ID is already contains", "e", JOptionPane.ERROR_MESSAGE);
                     return;
                 } else if (USERNAME.equals(userName.getText())) {
-                    JOptionPane.showMessageDialog(null, "The USERNAME is already contains", "ERROR", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "The USERNAME is already contains", "e", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
             }
         Database.insertIntoDatabase("update customer set phonenumber='"+phoneNumber1.getText()+"',address='"+
                 address1.getText()+"',gmail='"+gmail1.getText()+"',username='"+userName1.getText()+"',password='"+password1.getText()+"'"
                 +"where CID='"+r+"'");
-        JOptionPane.showMessageDialog(null, "DONE ", "INSERTED", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, d, i, JOptionPane.INFORMATION_MESSAGE);
         updateBox.setVisible(false);
         } catch (SQLException e) {
-            logger.log(null,"Database connection error: ");
+            logger.log(null,m);
         }
     }
 

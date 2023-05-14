@@ -9,7 +9,7 @@ import java.sql.Statement;
 import java.util.logging.Logger;
 
 public class Database {
-    static Logger logger = Logger.getLogger(HelloController.class.getName());
+    static Logger logger = Logger.getLogger(Database.class.getName());
 
     public static ResultSet createDatabase(String string) {
         try {
@@ -19,8 +19,8 @@ public class Database {
             ods.setPassword("123456");
             Connection con = ods.getConnection();
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery(string);
-            return rs;
+            return stmt.executeQuery(string);
+
         } catch (SQLException e) {
             logger.log(null,"Database connection error: ");
         }

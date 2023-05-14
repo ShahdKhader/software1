@@ -1,57 +1,60 @@
 package com.example.software;
 
 public class TrackOrderTable {
-    private int OrderId;
-    private int AID;
-    private int CID;
-    private int Quantity;
-    private int Money;
-    private String Status,Size,Name,Color;
+    private int orderIdt;
+    private int aidt;
+    private int cidt;
+    private int quantityt;
+    private int moneyt;
+    private String statust;
+    private String sizet;
+    private String namet;
+    private String colort;
 
     public TrackOrderTable(int orderId, int AID, int CID, String name, int quantity, String size, String color, String status, int money) {
-        this.OrderId = orderId;
-        this.AID = AID;
-        this.CID = CID;
-        this.Name = name;
-        this.Quantity = quantity;
-        this.Size = size;
-        this.Color = color;
-        this.Status = status;
-        this.Money = money;
+        this.orderIdt = orderId;
+        this.aidt = AID;
+        this.cidt = CID;
+        this.namet = name;
+        this.quantityt = quantity;
+        this.sizet = size;
+        this.colort = color;
+        this.statust = status;
+        this.moneyt = money;
     }
     public int getOrderId() {
-        return OrderId;
+        return orderIdt;
     }
 
     public int getAID() {
-        return AID;
+        return aidt;
     }
 
     public int getCID() {
-        return CID;
+        return cidt;
     }
 
     public int getQuantity() {
-        return Quantity;
+        return quantityt;
     }
 
     public int getMoney() {
-        return Money;
+        return moneyt;
     }
 
     public String getStatus() {
-        return Status;
+        return statust;
     }
 
     public String getSize() {
-        return Size;
+        return sizet;
     }
 
     public String getName() {
-        return Name;
+        return namet;
     }
 
     public String getColor() {
-        return Color;
+        return colort;
     }
 }

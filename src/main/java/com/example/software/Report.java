@@ -55,10 +55,10 @@ public class Report implements Initializable{
         ResultSet r= Database.createDatabase("select cid,moneyamount from product");
         try {
             while (r.next()) {
-                int CID = Integer.parseInt(r.getString(1));
+                int cid1 = Integer.parseInt(r.getString(1));
                 int  moneyamount = Integer.parseInt(r.getString(2));
 
-                list1.add(new ReportTable(CID,moneyamount));
+                list1.add(new ReportTable(cid1,moneyamount));
             }
         } catch (SQLException e) {
             logger.log(null,"Database connection error: ");

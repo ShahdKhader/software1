@@ -9,8 +9,10 @@ import java.sql.Statement;
 import java.util.logging.Logger;
 
 public class Database {
-    static Logger logger = Logger.getLogger(Database.class.getName());
+    private Database(){
 
+    }
+    static Logger logger = Logger.getLogger(Database.class.getName());
     public static ResultSet createDatabase(String string) {
         try {
             OracleDataSource ods = new OracleDataSource();

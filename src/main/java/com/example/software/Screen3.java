@@ -65,7 +65,7 @@ public class Screen3 implements Initializable {
        colorLabel.setText(Screen2Controller.getColor());
        invoicePicture.setImage(Screen2Controller.getOrderPic().getImage());
        priceLabel.setText(String.valueOf(Screen2Controller.getMoney()));
-       ResultSet r=database.createDatabase("select * from product where cid='"+Screen2Controller.getCustomerEnteredId2()+"'");
+       ResultSet r= Database.createDatabase("select * from product where cid='"+Screen2Controller.getCustomerEnteredId2()+"'");
        int count=0;
        try{
            while (r.next())count+=Integer.parseInt(r.getString(5));

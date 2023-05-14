@@ -1,20 +1,14 @@
 package com.example.software;
 
-import animatefx.animation.FadeIn;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 import oracle.jdbc.pool.OracleDataSource;
 
-import javax.swing.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Logger;
 
-public class database {
+public class Database {
     static Logger logger = Logger.getLogger(HelloController.class.getName());
 
     public static ResultSet createDatabase(String string) {

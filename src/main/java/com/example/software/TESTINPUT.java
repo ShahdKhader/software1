@@ -51,8 +51,7 @@ public class TESTINPUT {
                 else if(Character.isUpperCase(password.charAt(i))) flagc=true;
                 else if (Character.isDigit(password.charAt(i))) flagn=true;
             }
-            if(flags==true && flagc==true && flagn==true) return true;
-            else return false;
+            return flags&&flagc&&flagn;
         }
     }
     public static int  ordernameTest(String name) {
@@ -63,11 +62,11 @@ public class TESTINPUT {
         else if(name.equals("BLANKET")) flag=3;
         return flag;
     }
-        public static boolean orderQuantityTest(String Quantity) {
-          if ( Quantity.length() >0) {
+        public static boolean orderQuantityTest(String quantity) {
+          if ( quantity.length() >0) {
             boolean flag = true;
-            for(int i=0;i<Quantity.length();i++){
-                if(!Character.isDigit(Quantity.charAt(i))){
+            for(int i=0;i<quantity.length();i++){
+                if(!Character.isDigit(quantity.charAt(i))){
                     flag = false ;
                     break;
                 }
@@ -76,14 +75,14 @@ public class TESTINPUT {
           }
           return false;
     }
-    public static boolean orderSizeTest(String Size) {
-        return TESTINPUT.orderQuantityTest(Size);
+    public static boolean orderSizeTest(String size) {
+        return TESTINPUT.orderQuantityTest(size);
 
     }
-    public static boolean orderColorTest(String Color) {
+    public static boolean orderColorTest(String color) {
         boolean flag = true;
-        for (int i = 0; i < Color.length(); i++) {
-            if (Character.isDigit(Color.charAt(i))) {
+        for (int i = 0; i < color.length(); i++) {
+            if (Character.isDigit(color.charAt(i))) {
                 flag = false;
                 break;
             }
@@ -91,8 +90,8 @@ public class TESTINPUT {
         return flag;
     }
 
-    public static boolean orderPictureTest(String Picture) {
-        if(Picture.indexOf(".png")!=-1 || Picture.indexOf(".jpg")!=-1) return true;
+    public static boolean orderPictureTest(String picture) {
+        if(picture.indexOf(".png")!=-1 || picture.indexOf(".jpg")!=-1) return true;
             else return false;
     }
     }

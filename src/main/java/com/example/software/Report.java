@@ -20,19 +20,19 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
-public class report implements Initializable{
-    static Logger logger = Logger.getLogger(report.class.getName());
+public class Report implements Initializable{
+    static Logger logger = Logger.getLogger(Report.class.getName());
 
     @FXML
     private Label back;
 
     @FXML
-    private TableColumn<reportTable, Integer> customerId;
+    private TableColumn<ReportTable, Integer> customerId;
 
     @FXML
-    private TableView<reportTable> reportTable;
+    private TableView<ReportTable> reportTable;
     @FXML
-    private TableColumn<reportTable, Integer> totalAmountOfMoney;
+    private TableColumn<ReportTable, Integer> totalAmountOfMoney;
 
     @FXML
     void backClicked(MouseEvent event) {
@@ -47,18 +47,18 @@ public class report implements Initializable{
             logger.log(null," An error occurred while opening a new window:");        }
     }
     @FXML
-    ObservableList<reportTable> list1= FXCollections.observableArrayList();
+    ObservableList<ReportTable> list1= FXCollections.observableArrayList();
 
     public  void initialize(URL url, ResourceBundle resourceBundle){
-        customerId.setCellValueFactory(new PropertyValueFactory<reportTable,Integer>("customerId"));
-        totalAmountOfMoney.setCellValueFactory(new PropertyValueFactory<reportTable,Integer>("totalAmountOfMoney"));
-        ResultSet r=database.createDatabase("select cid,moneyamount from product");
+        customerId.setCellValueFactory(new PropertyValueFactory<ReportTable,Integer>("customerId"));
+        totalAmountOfMoney.setCellValueFactory(new PropertyValueFactory<ReportTable,Integer>("totalAmountOfMoney"));
+        ResultSet r= Database.createDatabase("select cid,moneyamount from product");
         try {
             while (r.next()) {
                 int CID = Integer.parseInt(r.getString(1));
                 int  moneyamount = Integer.parseInt(r.getString(2));
 
-                list1.add(new reportTable(CID,moneyamount));
+                list1.add(new ReportTable(CID,moneyamount));
             }
         } catch (SQLException e) {
             logger.log(null,"Database connection error: ");

@@ -23,8 +23,8 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
-public class customerOperationController implements Initializable {
-    static Logger logger = Logger.getLogger(customerOperationController.class.getName());
+public class CustomerOperationController implements Initializable {
+    static Logger logger = Logger.getLogger(CustomerOperationController.class.getName());
 
     @FXML
     private Button add;
@@ -78,7 +78,7 @@ public class customerOperationController implements Initializable {
     private Button gitInformation;
     @FXML
     void gitInformationClicked(MouseEvent event) {
-        ResultSet r= database.createDatabase("select * from customer where CID='"+id1.getText()+"'");
+        ResultSet r= Database.createDatabase("select * from customer where CID='"+id1.getText()+"'");
         try{
             while (r.next()) {
                 id1.setText(r.getString(1));
@@ -111,7 +111,7 @@ public class customerOperationController implements Initializable {
                 JOptionPane.showMessageDialog(null, "Field is Empty", "ERROR", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-            ResultSet rs = database.createDatabase("select CID,USERNAME,PASSWORD from customer");
+            ResultSet rs = Database.createDatabase("select CID,USERNAME,PASSWORD from customer");
             while (rs.next()) {
                 String ID = rs.getString(1);
                 String USERNAME = rs.getString(2);
@@ -123,7 +123,7 @@ public class customerOperationController implements Initializable {
                     return;
                 }
             }
-                database.insertIntoDatabase("INSERT INTO CUSTOMER values('" + id.getText() + "','" + phoneNumber.getText() + "','" + address.getText() + "','" + gmail.getText() + "','" + userName.getText() + "','" + password.getText() + "')");
+                Database.insertIntoDatabase("INSERT INTO CUSTOMER values('" + id.getText() + "','" + phoneNumber.getText() + "','" + address.getText() + "','" + gmail.getText() + "','" + userName.getText() + "','" + password.getText() + "')");
                 JOptionPane.showMessageDialog(null, "DONE ", "INSERTED", JOptionPane.INFORMATION_MESSAGE);
                 addBox.setVisible(false);
         } catch (SQLException e) {
@@ -158,7 +158,7 @@ public class customerOperationController implements Initializable {
     void delete2Clicked(MouseEvent event) {
         if(customerIdDelete.getText().isEmpty()) JOptionPane.showMessageDialog(null, "Please Fill Id Customer First !", "ERROR", JOptionPane.ERROR_MESSAGE);
         else {
-            database.insertIntoDatabase("delete from customer where cid ='"+customerIdDelete.getText()+"'");
+            Database.insertIntoDatabase("delete from customer where cid ='"+customerIdDelete.getText()+"'");
             JOptionPane.showMessageDialog(null, "DONE ", "INSERTED", JOptionPane.INFORMATION_MESSAGE);
             deleteBox.setVisible(false);
         }
@@ -191,7 +191,7 @@ public class customerOperationController implements Initializable {
                 JOptionPane.showMessageDialog(null, "Field is Empty", "ERROR", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-            ResultSet rs = database.createDatabase("select CID,USERNAME,PASSWORD from customer");
+            ResultSet rs = Database.createDatabase("select CID,USERNAME,PASSWORD from customer");
             while (rs.next()) {
                 String ID = rs.getString(1);
                 String USERNAME = rs.getString(2);
@@ -203,7 +203,7 @@ public class customerOperationController implements Initializable {
                     return;
                 }
             }
-        database.insertIntoDatabase("update customer set phonenumber='"+phoneNumber1.getText()+"',address='"+
+        Database.insertIntoDatabase("update customer set phonenumber='"+phoneNumber1.getText()+"',address='"+
                 address1.getText()+"',gmail='"+gmail1.getText()+"',username='"+userName1.getText()+"',password='"+password1.getText()+"'"
                 +"where CID='"+r+"'");
         JOptionPane.showMessageDialog(null, "DONE ", "INSERTED", JOptionPane.INFORMATION_MESSAGE);

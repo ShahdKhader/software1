@@ -24,32 +24,32 @@ import java.util.logging.Logger;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
-public class trackOrderController implements Initializable {
-    static Logger logger = Logger.getLogger(trackOrderController.class.getName());
+public class TrackOrderController implements Initializable {
+    static Logger logger = Logger.getLogger(TrackOrderController.class.getName());
 
     @FXML
-    private TableView<trackOrderTable> table;
+    private TableView<TrackOrderTable> table;
     @FXML
-    private TableColumn<trackOrderTable, Integer> AID;
+    private TableColumn<TrackOrderTable, Integer> AID;
     @FXML
-    private TableColumn<trackOrderTable, Integer>CID;
+    private TableColumn<TrackOrderTable, Integer>CID;
 
     @FXML
-    private TableColumn<trackOrderTable, Integer> Money;
+    private TableColumn<TrackOrderTable, Integer> Money;
 
     @FXML
-    private TableColumn<trackOrderTable, Integer> OrderId;
+    private TableColumn<TrackOrderTable, Integer> OrderId;
     @FXML
-    private TableColumn<trackOrderTable, Integer>Quantity;
+    private TableColumn<TrackOrderTable, Integer>Quantity;
 
     @FXML
-    private TableColumn<trackOrderTable, String> Color;
+    private TableColumn<TrackOrderTable, String> Color;
     @FXML
-    private TableColumn<trackOrderTable, String> Name;
+    private TableColumn<TrackOrderTable, String> Name;
     @FXML
-    private TableColumn<trackOrderTable, String> Size;
+    private TableColumn<TrackOrderTable, String> Size;
     @FXML
-    private TableColumn<trackOrderTable, String>Status;
+    private TableColumn<TrackOrderTable, String>Status;
     @FXML
     private Label back;
     @FXML
@@ -63,17 +63,17 @@ public class trackOrderController implements Initializable {
     void trackClicked(MouseEvent event) {
         String q=id2.getText();
        String w= status2.getText();
-        database.createDatabase("update product set status ='"+w+ "' where pid="+q);
+        Database.createDatabase("update product set status ='"+w+ "' where pid="+q);
         table.setItems(list);
-        ResultSet rs=database.createDatabase("select status,wid from worker");
+        ResultSet rs= Database.createDatabase("select status,wid from worker");
         int flag=1;
         try{
             if(w.equals("in treatment")) {
                 while (rs.next()) {
                     String status = rs.getString(1);
                     if (rs.getString(1).equals("available")) {
-                        database.insertIntoDatabase("update worker set status='not available' where wid='"+rs.getString(2)+"'");
-                        database.insertIntoDatabase("insert into WORKONSHINING values(workerShining.nextval,'" + rs.getString(2) + "','" + q + "')");
+                        Database.insertIntoDatabase("update worker set status='not available' where wid='"+rs.getString(2)+"'");
+                        Database.insertIntoDatabase("insert into WORKONSHINING values(workerShining.nextval,'" + rs.getString(2) + "','" + q + "')");
                         return;
                     }
                 }
@@ -82,12 +82,12 @@ public class trackOrderController implements Initializable {
 
             }
             else if(w.equals("complete")){
-                ResultSet rs2= database.createDatabase("select WIDSHINING from WORKONSHINING where PIDSHINING='"+q+"'");
+                ResultSet rs2= Database.createDatabase("select WIDSHINING from WORKONSHINING where PIDSHINING='"+q+"'");
                 rs2.next();
-                database.insertIntoDatabase("update worker set status='available' where wid='"+rs2.getString(1)+"'");
-                ResultSet result1=database.createDatabase("select cid from product where pid="+Integer.parseInt(q));
+                Database.insertIntoDatabase("update worker set status='available' where wid='"+rs2.getString(1)+"'");
+                ResultSet result1= Database.createDatabase("select cid from product where pid="+Integer.parseInt(q));
                 result1.next();
-                ResultSet result2=database.createDatabase("select gmail from customer where cid="+result1.getInt(1));
+                ResultSet result2= Database.createDatabase("select gmail from customer where cid="+result1.getInt(1));
                 result2.next();
                 Mail m=new Mail();
                 m.rasheedEmail(result2.getString(1));
@@ -111,20 +111,20 @@ public class trackOrderController implements Initializable {
         }
     }
     @FXML
-    ObservableList<trackOrderTable> list= FXCollections.observableArrayList();
+    ObservableList<TrackOrderTable> list= FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        OrderId.setCellValueFactory(new PropertyValueFactory<trackOrderTable,Integer>("OrderId"));
-        AID.setCellValueFactory(new PropertyValueFactory<trackOrderTable,Integer>("AID"));
-        CID.setCellValueFactory(new PropertyValueFactory<trackOrderTable,Integer>("CID"));
-        Quantity.setCellValueFactory(new PropertyValueFactory<trackOrderTable,Integer>("Quantity"));
-        Money.setCellValueFactory(new PropertyValueFactory<trackOrderTable,Integer>("Money"));
-        Name.setCellValueFactory(new PropertyValueFactory<trackOrderTable,String>("Name"));
-        Size.setCellValueFactory(new PropertyValueFactory<trackOrderTable,String>("Size"));
-        Color.setCellValueFactory(new PropertyValueFactory<trackOrderTable,String>("Color"));
-        Status.setCellValueFactory(new PropertyValueFactory<trackOrderTable,String>("Status"));
-            ResultSet rs = database.createDatabase("select * from PRODUCT");
+        OrderId.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,Integer>("OrderId"));
+        AID.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,Integer>("AID"));
+        CID.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,Integer>("CID"));
+        Quantity.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,Integer>("Quantity"));
+        Money.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,Integer>("Money"));
+        Name.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,String>("Name"));
+        Size.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,String>("Size"));
+        Color.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,String>("Color"));
+        Status.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,String>("Status"));
+            ResultSet rs = Database.createDatabase("select * from PRODUCT");
         try {
             while (rs.next()) {
                 int pid = Integer.parseInt(rs.getString(1));
@@ -136,7 +136,7 @@ public class trackOrderController implements Initializable {
                 String color = rs.getString(7);
                 String status = rs.getString(8);
                 int money =Integer.parseInt( rs.getString(9));
-                list.add(new trackOrderTable(pid,aid,cid,name,quantity,size,color,status,money));
+                list.add(new TrackOrderTable(pid,aid,cid,name,quantity,size,color,status,money));
             }
         } catch (SQLException e) {
             logger.log(null,"Database connection error: ");

@@ -1,6 +1,6 @@
 package com.example.software;
 
-public class trackOrderTable {
+public class TrackOrderTable {
     private int OrderId;
     private int AID;
     private int CID;
@@ -8,7 +8,7 @@ public class trackOrderTable {
     private int Money;
     private String Status,Size,Name,Color;
 
-    public trackOrderTable(int orderId, int AID, int CID, String name,int quantity, String size, String color, String status,int money) {
+    public TrackOrderTable(int orderId, int AID, int CID, String name, int quantity, String size, String color, String status, int money) {
         this.OrderId = orderId;
         this.AID = AID;
         this.CID = CID;

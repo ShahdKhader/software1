@@ -6,14 +6,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-;import javafx.event.ActionEvent;
+;
 import javafx.stage.Stage;
-import javafx.fxml.FXML;
 
 import java.io.IOException;
 import java.util.logging.Logger;
 
-public class menu2Controller {
+public class Menu2Controller {
     @FXML
     private Label Statistics;
     @FXML
@@ -25,7 +24,7 @@ public class menu2Controller {
     @FXML
     private Label productOperation;
 
-    static Logger logger = Logger.getLogger(menu2Controller.class.getName());
+    static Logger logger = Logger.getLogger(Menu2Controller.class.getName());
 
     @FXML
     void ReportClicked(MouseEvent event) {

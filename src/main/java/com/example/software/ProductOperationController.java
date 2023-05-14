@@ -20,8 +20,8 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
-public class productOperationController implements Initializable {
-    static Logger logger = Logger.getLogger(productOperationController.class.getName());
+public class ProductOperationController implements Initializable {
+    static Logger logger = Logger.getLogger(ProductOperationController.class.getName());
     @FXML
     private Button UpdateProduct1;
     @FXML
@@ -82,7 +82,7 @@ public class productOperationController implements Initializable {
 
     @FXML
     void addProduct1Clicked(MouseEvent event) {
-        database.insertIntoDatabase("insert into item values ('"+productNameAdd1.getText()+"','"+smallSalaryAdd1.getText()+
+        Database.insertIntoDatabase("insert into item values ('"+productNameAdd1.getText()+"','"+smallSalaryAdd1.getText()+
                 "','"+meduimSalaryAdd1.getText()+"','"+largeSalaryAdd1.getText()+"')");
         addProductBox.setVisible(false);
         deleteBox.setVisible(false);
@@ -90,14 +90,14 @@ public class productOperationController implements Initializable {
     }
     @FXML
     void productDelete2Clicked(MouseEvent event) {
-       database.insertIntoDatabase("delete from item where type='"+productNameDelete1.getText()+"'");
+       Database.insertIntoDatabase("delete from item where type='"+productNameDelete1.getText()+"'");
         addProductBox.setVisible(false);
         deleteBox.setVisible(false);
         updateProductBox.setVisible(false);
     }
     @FXML
     void UpdateProduct1Clicked(MouseEvent event) {
-        database.insertIntoDatabase("update item set type='"+productNameUpdate1After.getText()+"',smallsalary='"+smallSalaryUpdate1.getText()+
+        Database.insertIntoDatabase("update item set type='"+productNameUpdate1After.getText()+"',smallsalary='"+smallSalaryUpdate1.getText()+
                 "',meduimsalary='"+meduimSalaryUpdate1.getText()+"',largesalary='"+largeSalaryUpdate1.getText()+"' where type='"+
                 productNameUpdate1.getText()+"'");
         addProductBox.setVisible(false);
@@ -106,7 +106,7 @@ public class productOperationController implements Initializable {
     }
     @FXML
     void gitInformationClicked(MouseEvent event) {
-      ResultSet r= database.createDatabase("select * from ITEM where type='"+productNameUpdate1.getText()+"'");
+      ResultSet r= Database.createDatabase("select * from ITEM where type='"+productNameUpdate1.getText()+"'");
       try{
           while (r.next()){
               productNameUpdate1After.setText(r.getString(1));

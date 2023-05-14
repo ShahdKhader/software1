@@ -149,20 +149,20 @@ public class Screen2Controller implements Initializable {
         else if(!TESTINPUT.orderColorTest(colorscreen2.getText())) JOptionPane.showMessageDialog(null,"Unvalied Color",errorMassage,JOptionPane.ERROR_MESSAGE);
         else {
             String x = h.getZ();
-            ResultSet customerEnteredId = database.createDatabase("select CID from CUSTOMER where GMAIL =" + "'" + x + "'");
+            ResultSet customerEnteredId = Database.createDatabase("select CID from CUSTOMER where GMAIL =" + "'" + x + "'");
             while (customerEnteredId.next()) {
                 setCustomerEnteredId2(customerEnteredId.getString(1));
             }
         }
        if(sizescreen2.getValue().equals("SMALL")) {
-           ResultSet r=database.createDatabase("select smallsalary from item where type='"+namescreen2.getValue()+"'");
+           ResultSet r= Database.createDatabase("select smallsalary from item where type='"+namescreen2.getValue()+"'");
                r.next();
-               money=Integer.parseInt(quantityscreen2.getText())*Integer.parseInt(r.getString(1));
+               setMoney(Integer.parseInt(quantityscreen2.getText())*Integer.parseInt(r.getString(1)));
        }
-                ResultSet r=database.createDatabase("select "+sizescreen2.getValue()+"salary from item where type='"+namescreen2.getValue()+"'");
+                ResultSet r= Database.createDatabase("select "+sizescreen2.getValue()+"salary from item where type='"+namescreen2.getValue()+"'");
                     r.next();
-                    money=Integer.parseInt(quantityscreen2.getText())*Integer.parseInt(r.getString(1));
-         database.insertIntoDatabase("insert into PRODUCT values(productSequence1.nextval,'"+ "407222222"+"','"+customerEnteredId2+ "','"+namescreen2.getValue()+"','" +
+                    setMoney(Integer.parseInt(quantityscreen2.getText())*Integer.parseInt(r.getString(1)));
+         Database.insertIntoDatabase("insert into PRODUCT values(productSequence1.nextval,'"+ "407222222"+"','"+customerEnteredId2+ "','"+namescreen2.getValue()+"','" +
                 quantityscreen2.getText()+"','"+sizescreen2.getValue()+"','"+colorscreen2.getText()+"','"+"waiting"+"','"+money+"')");
         JOptionPane.showMessageDialog(null, "DONE ", "INSERTED", JOptionPane.INFORMATION_MESSAGE);
             setName(namescreen2.getValue());
@@ -202,7 +202,7 @@ public class Screen2Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObservableList<String> o =FXCollections.observableArrayList();
-        ResultSet r=database.createDatabase("select * from item");
+        ResultSet r= Database.createDatabase("select * from item");
         try {
             while (r.next()) {
                 o.add(r.getString(1));

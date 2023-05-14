@@ -20,8 +20,8 @@ import javax.swing.*;
 import javafx.scene.control.TextField;
 
 
-public class signUpController {
-    static Logger logger = Logger.getLogger(signUpController.class.getName());
+public class SignUpController {
+    static Logger logger = Logger.getLogger(SignUpController.class.getName());
 
     @FXML
     private TextField address;
@@ -76,7 +76,7 @@ public class signUpController {
                 JOptionPane.showMessageDialog(null, "Field is Empty", "ERROR", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-            ResultSet rs = database.createDatabase("select CID,USERNAME,PASSWORD from customer");
+            ResultSet rs = Database.createDatabase("select CID,USERNAME,PASSWORD from customer");
             while (rs.next()) {
                 String ID = rs.getString(1);
                 String USERNAME = rs.getString(2);
@@ -88,7 +88,7 @@ public class signUpController {
                     return;
                 }
             }
-            database.insertIntoDatabase("INSERT INTO CUSTOMER values('" + id.getText() + "','" + phoneNumber.getText() + "','" + address.getText() + "','" + gmail.getText() + "','" + userName.getText() + "','" + password.getText() + "')");
+            Database.insertIntoDatabase("INSERT INTO CUSTOMER values('" + id.getText() + "','" + phoneNumber.getText() + "','" + address.getText() + "','" + gmail.getText() + "','" + userName.getText() + "','" + password.getText() + "')");
             JOptionPane.showMessageDialog(null, "DONE ", "INSERTED", JOptionPane.INFORMATION_MESSAGE);
         } catch (SQLException e) {
             logger.log(null,"Database connection error: ");

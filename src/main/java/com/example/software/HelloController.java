@@ -42,8 +42,8 @@ public class HelloController {
     void login1Clicked(ActionEvent event) {
 
         try {
-            ResultSet rs = database.createDatabase("select GMAIL,PASSWORD from CUSTOMER");
-            ResultSet ra=database.createDatabase("select GMAIL,PASSWORD from admin ");
+            ResultSet rs = Database.createDatabase("select GMAIL,PASSWORD from CUSTOMER");
+            ResultSet ra= Database.createDatabase("select GMAIL,PASSWORD from admin ");
             while (ra.next()){
                 String gmailA = ra.getString(1);
                 String passwordA = ra.getString(2);

@@ -1,9 +1,9 @@
 package com.example.software;
 
-public class reportTable {
+public class ReportTable {
     private  int customerId;
     private int totalAmountOfMoney;
-    public reportTable( int customerId,int totalAmountOfMoney) {
+    public ReportTable(int customerId, int totalAmountOfMoney) {
        this.customerId=customerId;
        this.totalAmountOfMoney=totalAmountOfMoney;
     }

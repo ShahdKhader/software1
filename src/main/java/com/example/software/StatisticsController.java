@@ -21,7 +21,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
-public class statisticsController implements Initializable {
+public class StatisticsController implements Initializable {
     @FXML
     private ImageView add;
     @FXML
@@ -31,7 +31,7 @@ public class statisticsController implements Initializable {
     @FXML
     private PieChart pieChart;
 
-    static Logger logger = Logger.getLogger(statisticsController.class.getName());
+    static Logger logger = Logger.getLogger(StatisticsController.class.getName());
 
     @FXML
     void backClicked(MouseEvent event) {
@@ -49,9 +49,9 @@ public class statisticsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         int workingCount=0,completeCount=0,inTreatmentCount=0;
-        ResultSet r1=database.createDatabase("select * from PRODUCT where status='working'");
-        ResultSet r2=database.createDatabase("select * from PRODUCT where status='complete'");
-        ResultSet r3=database.createDatabase("select * from PRODUCT where status='in treatment'");
+        ResultSet r1= Database.createDatabase("select * from PRODUCT where status='working'");
+        ResultSet r2= Database.createDatabase("select * from PRODUCT where status='complete'");
+        ResultSet r3= Database.createDatabase("select * from PRODUCT where status='in treatment'");
         try{
             while(r1.next()) workingCount++;
             while(r2.next()) completeCount++;

@@ -148,7 +148,7 @@ public class Screen2Controller implements Initializable {
         else if(!TESTINPUT.orderQuantityTest(quantityscreen2.getText())) JOptionPane.showMessageDialog(null,"Unvalied Quantity",errorMassage,JOptionPane.ERROR_MESSAGE);
         else if(!TESTINPUT.orderColorTest(colorscreen2.getText())) JOptionPane.showMessageDialog(null,"Unvalied Color",errorMassage,JOptionPane.ERROR_MESSAGE);
         else {
-            String x = h.getZ();
+            String x = HelloController.getZ();
             ResultSet customerEnteredId = Database.createDatabase("select CID from CUSTOMER where GMAIL =" + "'" + x + "'");
             while (customerEnteredId.next()) {
                 setCustomerEnteredId2(customerEnteredId.getString(1));

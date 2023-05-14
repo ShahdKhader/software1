@@ -11,10 +11,10 @@ public class TrackOrderTable {
     private String namet;
     private String colort;
 
-    public TrackOrderTable(int orderId, int AID, int CID, String name, int quantity, String size, String color, String status, int money) {
+    public TrackOrderTable(int orderId, int aid, int cid, String name, int quantity, String size, String color, String status, int money) {
         this.orderIdt = orderId;
-        this.aidt = AID;
-        this.cidt = CID;
+        this.aidt = aid;
+        this.cidt = cid;
         this.namet = name;
         this.quantityt = quantity;
         this.sizet = size;

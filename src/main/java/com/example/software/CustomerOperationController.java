@@ -79,7 +79,7 @@ public class CustomerOperationController implements Initializable {
     @FXML
     private Button gitInformation;
     private String m="Database connection error: ";
-    private String e="ERROR";
+    private String em="ERROR";
     private String d="DONE";
     private String i="INSERTED";
     @FXML
@@ -102,19 +102,19 @@ public class CustomerOperationController implements Initializable {
     void add2Clicked(MouseEvent event) {
         try {
             if (!TESTINPUT.idTest(id.getText())){
-                JOptionPane.showMessageDialog(null, "wrong id !", e, JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "wrong id !", em, JOptionPane.ERROR_MESSAGE);
             return;}
             else if (!TESTINPUT.passwordTest(password.getText())){
-                JOptionPane.showMessageDialog(null, "wrong PASSWORD !", e, JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "wrong PASSWORD !", em, JOptionPane.ERROR_MESSAGE);
                 return;}
             else if (!TESTINPUT.phoneNumberTest(phoneNumber.getText())){
-                JOptionPane.showMessageDialog(null, "wrong PHONE NUMBER !", e, JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "wrong PHONE NUMBER !", em, JOptionPane.ERROR_MESSAGE);
                 return;}
             else if (!TESTINPUT.gmailTest(gmail.getText())){
-                JOptionPane.showMessageDialog(null, "wrong GMAIL !", e, JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "wrong GMAIL !", em, JOptionPane.ERROR_MESSAGE);
                 return;}
             else if (id.getText().isEmpty() || phoneNumber.getText().isEmpty() || gmail.getText().isEmpty() || userName.getText().isEmpty() || password.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Field is Empty", e, JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Field is Empty", em, JOptionPane.ERROR_MESSAGE);
                 return;
             }
             ResultSet rs = Database.createDatabase("select CID,USERNAME,PASSWORD from customer");
@@ -122,10 +122,10 @@ public class CustomerOperationController implements Initializable {
                 String id2 = rs.getString(1);
                 String username2 = rs.getString(2);
                 if (id2.equals(id.getText())) {
-                    JOptionPane.showMessageDialog(null, "The ID is already contains", e, JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "The ID is already contains", em, JOptionPane.ERROR_MESSAGE);
                     return;
                 } else if (username2.equals(userName.getText())) {
-                    JOptionPane.showMessageDialog(null, "The USERNAME is already contains", e, JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "The USERNAME is already contains", em, JOptionPane.ERROR_MESSAGE);
                     return;
                 }
             }
@@ -198,12 +198,12 @@ public class CustomerOperationController implements Initializable {
             }
             ResultSet rs = Database.createDatabase("select CID,USERNAME,PASSWORD from customer");
             while (rs.next()) {
-                String ID = rs.getString(1);
-                String USERNAME = rs.getString(2);
-                if (ID.equals(id.getText())) {
+                String idc = rs.getString(1);
+                String usernamec = rs.getString(2);
+                if (idc.equals(id.getText())) {
                     JOptionPane.showMessageDialog(null, "The ID is already contains", "e", JOptionPane.ERROR_MESSAGE);
                     return;
-                } else if (USERNAME.equals(userName.getText())) {
+                } else if (usernamec.equals(userName.getText())) {
                     JOptionPane.showMessageDialog(null, "The USERNAME is already contains", "e", JOptionPane.ERROR_MESSAGE);
                     return;
                 }

@@ -140,7 +140,6 @@ public class Screen2Controller implements Initializable {
     @FXML
     ///
     void saveClicked(ActionEvent event) {
-        HelloController h = new HelloController();
         try{
         if(namescreen2.getSelectionModel().isEmpty() && sizescreen2.getSelectionModel().isEmpty() && quantityscreen2.getText().isEmpty() && colorscreen2.getText().isEmpty()) JOptionPane.showMessageDialog(null,"Please Fill the Data First !",errorMassage,JOptionPane.ERROR_MESSAGE);
         else if(quantityscreen2.getText().isEmpty())JOptionPane.showMessageDialog(null,"Select The Quantitiy !",errorMassage,JOptionPane.ERROR_MESSAGE);

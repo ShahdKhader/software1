@@ -10,7 +10,7 @@ Feature: Customer discount
 
   Scenario: Invalid discount calculation
     Given a customer with an order value of 50
-    When the customer is not eligible for any discount
+    When the customer is not eligible for any "discount"
     Then the discount amount should be 0
     And the total order value should be 50
 
@@ -22,6 +22,6 @@ Feature: Customer discount
 
   Scenario: Minimum discount applied
     Given a customer with an order value of 100
-    When the customer is not eligible for any discount
+    When the customer is not eligible for any "discount"
     Then the discount amount be should be 0
     And an error message should be displayed stating that the minimum order value of 200 was not met

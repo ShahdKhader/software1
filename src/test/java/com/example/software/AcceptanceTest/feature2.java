@@ -24,25 +24,19 @@ public class feature2 {
     }
 
     @When("he fill in {string} with {string}")
-    public void heFillInWith(String string, String string2) throws SQLException {
-        boolean flag=false;
+    public void heFillInWith(String string, String string2)  {
         if(string.equals("Name")){
-             int flag2= TESTINPUT.ordernameTest(string2);
-             assertEquals(true,flag2>0);
+             assertEquals(true,TESTINPUT.ordernameTest(string2)>0);
             }
         else if (string.equals("Quantity")) {
-            flag= TESTINPUT.orderQuantityTest(string2);
-            assertEquals(true,flag);
+            assertEquals(true,TESTINPUT.orderQuantityTest(string2));
         }
         else if (string.equals("size")) {
-          flag=TESTINPUT.orderSizeTest(string2);
-          assertEquals(true,flag);
+          assertEquals(true,TESTINPUT.orderSizeTest(string2));
         }
         else if (string.equals("color")) {
-           flag=TESTINPUT.orderColorTest(string2);
-           assertEquals(true, flag);
+           assertEquals(true, TESTINPUT.orderColorTest(string2));
         }
-
     }
     @When("he fill in {string} with extension {string}")
     public void heFillInWithExtention(String string, String string2) {
@@ -60,6 +54,4 @@ public class feature2 {
     public void showMassage(String string) {
         assertEquals(true,string.equals("information has been entered successfully"));
     }
-
-
 }

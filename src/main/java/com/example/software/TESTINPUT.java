@@ -1,6 +1,9 @@
 package com.example.software;
 
 public class TESTINPUT {
+    private TESTINPUT(){
+
+    }
     public static boolean idTest(String id) {
         if (id.length() == 9) {
             boolean flag = true;
@@ -91,7 +94,6 @@ public class TESTINPUT {
     }
 
     public static boolean orderPictureTest(String picture) {
-        if(picture.indexOf(".png")!=-1 || picture.indexOf(".jpg")!=-1) return true;
-            else return false;
+        return (picture.indexOf(".png")!=-1 || picture.indexOf(".jpg")!=-1) ;
     }
     }

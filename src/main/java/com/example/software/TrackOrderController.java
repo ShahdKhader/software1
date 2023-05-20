@@ -13,6 +13,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+
+import javax.mail.MessagingException;
 import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
@@ -90,9 +92,8 @@ public class TrackOrderController implements Initializable {
                 Mail m=new Mail();
                 m.rasheedEmail(result2.getString(1));
             }
-        } catch (Exception e) {
-            System.out.println("iam email when complete");
-        }
+        } catch (SQLException | MessagingException | IOException e) {
+            logger.log(null,"Database connection error: ");        }
     }
     @FXML
     void backClicked(MouseEvent event) {

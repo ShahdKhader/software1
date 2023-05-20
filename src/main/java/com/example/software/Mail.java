@@ -32,7 +32,7 @@ public class Mail
         transport.close();
     }
 
-    private MimeMessage draftEmail(String names) throws AddressException, MessagingException, IOException {
+    private MimeMessage draftEmail(String names) throws MessagingException {
         String emailSubject = "Your product is completed";
         String emailBody = "Come to the store and take the product as possible as you can";
         mimeMessage = new MimeMessage(newSession);

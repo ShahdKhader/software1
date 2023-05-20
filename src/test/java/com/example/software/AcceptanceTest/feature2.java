@@ -44,11 +44,11 @@ public class feature2 {
     }
     @When("he fill in a {string} with {string}")
     public void heFillInAWith(String string, String string2) throws SQLException {
-     assertEquals(true,true);
+     assertEquals(true,string2!="0");
     }
     @When("he fill in a {string} with extension {string}")
     public void heFillInAWithExtension(String string, String string2) {
-        assertEquals(true,true);
+        assertEquals(true,string.equals("picture"));
     }
     @Then("show massage {string}")
     public void showMassage(String string) {

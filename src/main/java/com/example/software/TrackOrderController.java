@@ -92,7 +92,7 @@ public class TrackOrderController implements Initializable {
                 Mail m=new Mail();
                 m.rasheedEmail(result2.getString(1));
             }
-        } catch (SQLException | MessagingException | IOException e) {
+        } catch (SQLException | MessagingException e) {
             logger.log(null,"Database connection error: ");        }
     }
     @FXML

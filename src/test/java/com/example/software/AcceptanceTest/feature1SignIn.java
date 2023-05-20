@@ -16,7 +16,7 @@ public class feature1SignIn {
     }
 
     @Given("I go to loginchoise")
-    public void iGoToLoginchoise() throws SQLException {
+    public void iGoToLoginchoise()  {
         assertEquals(true,x);
     }
     @Given("the field {string} is empty")

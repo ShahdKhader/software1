@@ -5,7 +5,6 @@ import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.Transport;
-import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
@@ -16,7 +15,7 @@ public class Mail
 {
     Session newSession = null;
     MimeMessage mimeMessage = null;
-    public void rasheedEmail(String names) throws MessagingException, IOException {
+    public void rasheedEmail(String names) throws MessagingException {
         Mail mail = new Mail();
         mail.setupServerProperties();
         mail.draftEmail(names);

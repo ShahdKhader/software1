@@ -9,7 +9,6 @@ import java.sql.SQLException;
 
 import static org.junit.Assert.assertEquals;
 public class feature1SignIn {
-    HelloController helloController=new HelloController();
         ResultSet s = Database.createDatabase("select * from customer");
         boolean x = s.next();
 

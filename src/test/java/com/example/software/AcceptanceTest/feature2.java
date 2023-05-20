@@ -46,8 +46,7 @@ public class feature2 {
     }
     @When("he fill in {string} with extension {string}")
     public void heFillInWithExtention(String string, String string2) {
-       boolean flag=TESTINPUT.orderPictureTest(string2);
-       assertEquals(true, flag);
+       assertEquals(true, TESTINPUT.orderPictureTest(string2));
     }
     @When("he fill in a {string} with {string}")
     public void heFillInAWith(String string, String string2) throws SQLException {

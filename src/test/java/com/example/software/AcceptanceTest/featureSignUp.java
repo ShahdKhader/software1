@@ -6,33 +6,25 @@ import static org.junit.Assert.assertEquals;
 public class featureSignUp {
     @When("I click on sign up and flag is {string}")
     public void iClickOnSignUpAndFlagIs(String string) {
-        if (string.equals(true)) {
-            assertEquals(true, true);
-        }
-        else assertEquals(false, false);
+            assertEquals(true, string.equals(true));
     }
     @When("he fills in {string} with {string}")
     public void heFillsInWith(String string, String string2) {
         if(string.equals("ID")){
-            boolean flag=TESTINPUT.idTest(string);
-            if(flag==true)  assertEquals(true, true);
-            else assertEquals(false, false);
+            assertEquals(true, TESTINPUT.idTest(string));
         }
         else if(string.equals("Phone Number") ||string.equals("BackUp Number")){
         boolean flag=TESTINPUT.phoneNumberTest(string);
-        if(flag==true)  assertEquals(true, true);
-            else assertEquals(false, false);
+         assertEquals(true, TESTINPUT.phoneNumberTest(string));
         }
 
         else if(string.equals("Gmail")) {
             boolean flag=TESTINPUT.gmailTest(string);
-            if(flag==true)  assertEquals(true, true);
-            else assertEquals(false, false);
+            assertEquals(true, TESTINPUT.gmailTest(string));
         }
         else if(string.equals("Password")){
             boolean flag=TESTINPUT.passwordTest(string);
-            if(flag==true)  assertEquals(true, true);
-            else assertEquals(false, false);
+            assertEquals(true, TESTINPUT.passwordTest(string));
         }
 
     }

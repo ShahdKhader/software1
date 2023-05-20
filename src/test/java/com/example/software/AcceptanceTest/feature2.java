@@ -2,7 +2,6 @@ package com.example.software.AcceptanceTest;
 import com.example.software.TESTINPUT;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
 import java.sql.SQLException;
 
 import static org.junit.Assert.assertEquals;

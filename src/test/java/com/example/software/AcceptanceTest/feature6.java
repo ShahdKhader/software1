@@ -1,24 +1,8 @@
 package com.example.software.AcceptanceTest;
-import com.example.software.HelloController;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import jdk.jfr.consumer.RecordedObject;
-import oracle.jdbc.pool.OracleDataSource;
-import org.junit.jupiter.api.Order;
 
-import javax.swing.*;
-import java.io.IOException;
-//import java.lang.reflect.ProxyGenerator;
-import java.math.BigDecimal;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import static org.junit.Assert.assertEquals;
 public class feature6 {
     @Given("a customer with an order value of {int}")
@@ -50,12 +34,7 @@ public class feature6 {
     public void theCustomerIsEligibleForAMaximumDiscountOf(Integer int1) {
 
         assertEquals(true,true);
-       /* DiscountCalculater discountCalculater = new DiscountCalculater();
-        Order order = null;
-        BigDecimal discountAmount = discountCalculater.calculateDiscount(order, 0.20);
-        assertEquals(new BigDecimal("1000"), discountAmount);
-        order = null;
-        assertEquals(new BigDecimal("4000"), order.getClass());*/
+
     }
     @Then("the discount amount be should be {int}")
     public void theDiscountAmountBeShouldBe(Integer int1) {

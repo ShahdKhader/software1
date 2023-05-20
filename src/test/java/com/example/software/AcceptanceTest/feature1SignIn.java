@@ -1,12 +1,9 @@
 package com.example.software.AcceptanceTest;
-
 import com.example.software.Database;
 import com.example.software.HelloController;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
-import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 

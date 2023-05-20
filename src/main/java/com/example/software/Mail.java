@@ -22,10 +22,10 @@ public class Mail
     }
     private void sendEmail() throws MessagingException {
         String fromUser = "shahdmahez@gmail.com";
-        String fromUserPassword = "picygwzmqhguduuc";
+        String fromUserP= "picygwzmqhguduuc";
         String emailHost = "smtp.gmail.com";
         Transport transport = newSession.getTransport("smtp");
-        transport.connect(emailHost, fromUser, fromUserPassword);
+        transport.connect(emailHost, fromUser, fromUserP);
         transport.sendMessage(mimeMessage, mimeMessage.getAllRecipients());
         transport.close();
     }

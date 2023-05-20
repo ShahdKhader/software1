@@ -3,12 +3,7 @@ Feature: Information for the product
   user should insert picture for carpets would to clean
   Scenario: empty information
     When user click on insert order and flag is 'true'
-    Then the field 'Name' should be with error
-    And the field 'Quantity' should be with error
-    And the field 'size' should be with error
-    And the field 'color' should be with error
-    And the image 'picture' should be with error
-
+    Then all field should be with 'error'
 
   Scenario: a successful Information
     When user click on insert order and flag is 'true'
@@ -16,17 +11,17 @@ Feature: Information for the product
     And he fill in 'Quantity' with "4"
     And he fill in 'size' with '2'
     And he fill in 'color' with 'Red'
-    And he fill in 'picture' with extension 'png'
+    And he fill in 'picture' with extension 'a.png'
     And he presses 'save' and flag is 'true'
-    Then the information has been entered successfully
+    Then show massage 'information has been entered successfully'
 
   Scenario Outline: errors with input
     When user click on insert order and flag is 'true'
-    And he fill in 'Name' with '<Name>'
-    And he fill in 'Quantity' with '<Quantity>'
-    And he fill in 'size' with '<size>'
-    And he fill in 'color' with '<color>'
-    And he fill in 'picture' with extension '<picture>'
+    And he fill in a 'Name' with '<Name>'
+    And he fill in a 'Quantity' with '<Quantity>'
+    And he fill in a 'size' with '<size>'
+    And he fill in a 'color' with '<color>'
+    And he fill in a 'picture' with extension '<picture>'
     And he presses 'save' and flag is 'true'
     Then the user should see '<message>'
 

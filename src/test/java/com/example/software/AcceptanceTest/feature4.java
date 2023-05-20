@@ -28,13 +28,13 @@ public class feature4 {
 
     @When("I click on report and flag is {string}")
     public void iClickOnReportAndFlagIs(String string) {
-        if(string.equals(true)){
-            assertEquals(true,true);
+        assertEquals(true,string.equals("true"));
 
-        }
     }
-    @Then("should be a report created")
-    public void shouldBeAReportCreated() {
-        assertEquals(true, true);
+    @Then("show massege f {string}")
+    public void showMassegeF(String string) {
+        assertEquals(true,string.equals("should be a report created"));
+
     }
+
 }

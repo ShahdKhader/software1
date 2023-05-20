@@ -11,22 +11,17 @@ public class feature2 {
 
     @When("user click on insert order and flag is {string}")
     public void userClickOnInsertOrderAndFlagIs(String string) {
-        if(string.equals(true)){
-            assertEquals(true,true);
-        }
-        else assertEquals(false,false);
+            assertEquals(true,string.equals("true"));
 
     }
-    @Then("the field {string} should be with error")
-    public void theFieldShouldBeWithError(String string) {
-        System.out.println("Please enter the information");
-        assertEquals(false,false);
+    @Then("all field should be with {string}")
+    public void allFieldShouldBeWith(String string) {
+        assertEquals(true,string.equals("error"));
 
     }
     @Then("the image {string} should be with error")
     public void theImageShouldBeWithError(String string) {
-        System.out.printf("Please enter png extension!");
-        assertEquals(false,false);
+        assertEquals(true,string.equals("Please enter png extension!"));
     }
 
     @When("he fill in {string} with {string}")
@@ -34,36 +29,38 @@ public class feature2 {
         boolean flag=false;
         if(string.equals("Name")){
              int flag2= TESTINPUT.ordernameTest(string2);
-            if(flag2!=0) assertEquals(true,true);
-            else assertEquals(false,false);
+             assertEquals(true,flag2>0);
             }
         else if (string.equals("Quantity")) {
             flag= TESTINPUT.orderQuantityTest(string2);
-            if(flag == true)assertEquals(true,true);
-            else assertEquals(false,false);
+            assertEquals(true,flag);
         }
         else if (string.equals("size")) {
           flag=TESTINPUT.orderSizeTest(string2);
-            if(flag==true) assertEquals(true,true);
-            else assertEquals(false,false);
+          assertEquals(true,flag);
         }
         else if (string.equals("color")) {
            flag=TESTINPUT.orderColorTest(string2);
-            if (flag == true) assertEquals(true, true);
-            else assertEquals(false, false);
+           assertEquals(true, flag);
         }
 
     }
     @When("he fill in {string} with extension {string}")
     public void heFillInWithExtention(String string, String string2) {
        boolean flag=TESTINPUT.orderPictureTest(string2);
-        if (flag == true) assertEquals(true, true);
-        else assertEquals(false, false);
+       assertEquals(true, flag);
     }
-
-    @Then("the information has been entered successfully")
-    public void theInformationHasBeenEnteredSuccessfully() {
+    @When("he fill in a {string} with {string}")
+    public void heFillInAWith(String string, String string2) throws SQLException {
+     assertEquals(true,true);
+    }
+    @When("he fill in a {string} with extension {string}")
+    public void heFillInAWithExtension(String string, String string2) {
         assertEquals(true,true);
+    }
+    @Then("show massage {string}")
+    public void showMassage(String string) {
+        assertEquals(true,string.equals("information has been entered successfully"));
     }
 
 

@@ -20,16 +20,8 @@ import static org.junit.Assert.assertEquals;
 public class feature3 {
     @When("user click on invoice and flag is {string}")
     public void userClickOnInvoiceAndFlagIs(String string) {
-        boolean flag = true;
-        if (flag==true) {
-            assertEquals(true,true);
-        }
-        else assertEquals(false,false);
+            assertEquals(true,string.equals("true"));
 
-    }
-    @Then("the information has been successfully")
-    public void theInformationHasBeenSuccessfully() {
-        System.out.println("invoice printed !");
 
     }
 

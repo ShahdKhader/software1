@@ -27,31 +27,25 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 public class TrackOrderController implements Initializable {
+    @FXML
     static Logger logger = Logger.getLogger(TrackOrderController.class.getName());
 
     @FXML
     private TableView<TrackOrderTable> table;
     @FXML
-    private TableColumn<TrackOrderTable, Integer> aid1;
+    private TableColumn<TrackOrderTable, Integer> cid;
     @FXML
-    private TableColumn<TrackOrderTable, Integer>cid1;
-
+    private TableColumn<TrackOrderTable, Integer> orderId;
     @FXML
-    private TableColumn<TrackOrderTable, Integer> money1;
-
+    private TableColumn<TrackOrderTable, Integer>quantity;
     @FXML
-    private TableColumn<TrackOrderTable, Integer> orderId1;
+    private TableColumn<TrackOrderTable, String> color;
     @FXML
-    private TableColumn<TrackOrderTable, Integer>quantity1;
-
+    private TableColumn<TrackOrderTable, String> name;
     @FXML
-    private TableColumn<TrackOrderTable, String> color1;
+    private TableColumn<TrackOrderTable, String> size;
     @FXML
-    private TableColumn<TrackOrderTable, String> name1;
-    @FXML
-    private TableColumn<TrackOrderTable, String> size1;
-    @FXML
-    private TableColumn<TrackOrderTable, String>status1;
+    private TableColumn<TrackOrderTable, String> status;
     @FXML
     private Label back;
     @FXML
@@ -61,6 +55,7 @@ public class TrackOrderController implements Initializable {
 
     @FXML
     private TextField status2;
+
     @FXML
     void trackClicked(MouseEvent event) {
         String q=id2.getText();
@@ -113,32 +108,29 @@ public class TrackOrderController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        orderId1.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,Integer>("OrderId"));
-        aid1.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,Integer>("AID"));
-        cid1.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,Integer>("CID"));
-        quantity1.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,Integer>("Quantity"));
-        money1.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,Integer>("Money"));
-        name1.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,String>("Name"));
-        size1.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,String>("Size"));
-        color1.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,String>("Color"));
-        status1.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,String>("Status"));
-            ResultSet rs = Database.createDatabase("select * from PRODUCT");
+        orderId.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,Integer>("OrderId"));
+        cid.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,Integer>("CID"));
+        quantity.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,Integer>("Quantity"));
+        name.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,String>("Name"));
+        size.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,String>("Size"));
+        color.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,String>("Color"));
+        status.setCellValueFactory(new PropertyValueFactory<TrackOrderTable,String>("Status"));
+        ResultSet rs = Database.createDatabase("select * from PRODUCT");
         try {
             while (rs.next()) {
                 int pid = Integer.parseInt(rs.getString(1));
-                int aid = Integer.parseInt(rs.getString(2));
                 int cid = Integer.parseInt(rs.getString(3));
                 String name = rs.getString(4);
                 int quantity = Integer.parseInt(rs.getString(5));
                 String size = rs.getString(6);
                 String color = rs.getString(7);
                 String status = rs.getString(8);
-                int money =Integer.parseInt( rs.getString(9));
-                list.add(new TrackOrderTable(pid,aid,cid,name,quantity,size,color,status,money));
+                list.add(new TrackOrderTable(pid,cid,name,quantity,size,color,status));
             }
         } catch (SQLException e) {
-            logger.log(null,"Database connection error: ");
+            logger.log(null, "Database connection error: ");
         }
+
         table.setItems(list);
 
     }

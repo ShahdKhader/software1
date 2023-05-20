@@ -49,7 +49,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <HBox layoutX="57.0" layoutY="127.0" prefHeight="35.0" prefWidth="598.0">
+            <HBox layoutX="151.0" layoutY="125.0" prefHeight="35.0" prefWidth="598.0">
                <children>
                   <Label prefHeight="30.0" prefWidth="74.0" text="Order Id" textFill="#bc4e2a">
                      <font>
@@ -103,17 +103,15 @@
                   </Button>
                </children>
             </HBox>
-            <TableView fx:id="table" layoutX="57.0" layoutY="162.0" prefHeight="302.0" prefWidth="678.0">
+            <TableView fx:id="table" layoutX="112.0" layoutY="161.0" prefHeight="302.0" prefWidth="526.0">
                <columns>
-                  <TableColumn fx:id="OrderId" prefWidth="75.0" text="OrderId" />
-                  <TableColumn fx:id="AID" prefWidth="75.0" text="AID" />
-                  <TableColumn fx:id="CID" prefWidth="75.0" text="CID" />
-                  <TableColumn fx:id="Name" prefWidth="75.0" text="Name" />
-                  <TableColumn fx:id="Quantity" prefWidth="75.0" text="Quantity" />
-                  <TableColumn fx:id="Size" prefWidth="75.0" text="Size" />
-                  <TableColumn fx:id="Color" prefWidth="75.0" text="Color" />
-                  <TableColumn fx:id="Status" prefWidth="75.0" text="Status" />
-                  <TableColumn fx:id="Money" prefWidth="75.0" text="Money" />
+                  <TableColumn fx:id="orderId" prefWidth="75.0" text="OrderId" />
+                  <TableColumn fx:id="cid" prefWidth="75.0" text="CID" />
+                  <TableColumn fx:id="name" prefWidth="75.0" text="Name" />
+                  <TableColumn fx:id="quantity" prefWidth="75.0" text="Quantity" />
+                  <TableColumn fx:id="size" prefWidth="75.0" text="Size" />
+                  <TableColumn fx:id="color" prefWidth="75.0" text="Color" />
+                  <TableColumn fx:id="status" prefWidth="75.0" text="Status" />
                </columns>
             </TableView>
          </children>

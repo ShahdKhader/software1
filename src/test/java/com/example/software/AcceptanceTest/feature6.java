@@ -52,7 +52,7 @@ public class feature6 {
     }
     @When("the customer is eligible for a {int}% discount on that item")
     public void theCustomerIsEligibleForADiscountOnThatItem(Integer int1) {
-        assertEquals(true,int1);    }
+        assertEquals(true,int1>0);    }
     @Then("the discount amount for that item should be {double}")
     public void theDiscountAmountForThatItemShouldBe(Double double1) {
         assertEquals(true,double1> 0.0);    }

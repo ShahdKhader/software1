@@ -118,14 +118,14 @@ public class TrackOrderController implements Initializable {
         ResultSet rs = Database.createDatabase("select * from PRODUCT");
         try {
             while (rs.next()) {
-                int pid = Integer.parseInt(rs.getString(1));
-                int cid = Integer.parseInt(rs.getString(3));
-                String name = rs.getString(4);
-                int quantity = Integer.parseInt(rs.getString(5));
-                String size = rs.getString(6);
-                String color = rs.getString(7);
-                String status = rs.getString(8);
-                list.add(new TrackOrderTable(pid,cid,name,quantity,size,color,status));
+                int pi = Integer.parseInt(rs.getString(1));
+                int ci = Integer.parseInt(rs.getString(3));
+                String na = rs.getString(4);
+                int qu = Integer.parseInt(rs.getString(5));
+                String si = rs.getString(6);
+                String co = rs.getString(7);
+                String st = rs.getString(8);
+                list.add(new TrackOrderTable(pi,ci,na,qu,si,co,st));
             }
         } catch (SQLException e) {
             logger.log(null, "Database connection error: ");

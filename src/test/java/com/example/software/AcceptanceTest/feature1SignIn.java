@@ -21,26 +21,26 @@ public class feature1SignIn {
 
     @Given("I go to loginchoise")
     public void iGoToLoginchoise() throws SQLException {
-        assertEquals(x,true);
+        assertEquals(true,x);
     }
     @Given("the field {string} is empty")
-    public void theFieldIsEmpty(String string) { assertEquals(string.isEmpty(),true);    }
+    public void theFieldIsEmpty(String string) { assertEquals(true,string.isEmpty());    }
     @When("I click on login and flag is {string}")
     public void iClickOnLoginAndFlagIs(String string) {
-        assertEquals(string.equals("true"),true);
+        assertEquals(true,string.equals("true"));
 
     }
     @Then("field {string} should be with error")
     public void fieldShouldBeWithError(String string) {
-        assertEquals(string.isEmpty(),true);
+        assertEquals(true,string.isEmpty());
     }
     @Then("I should see {string}")
     public void iShouldSee(String string) {
-        assertEquals(string.equals("E-mail or password is incorrect"),true);
+        assertEquals(true,string.equals("E-mail or password is incorrect"));
 
     }
     @Then("I shouldnt see {string}")
     public void iShouldnTSee(String string){
-        assertEquals(!string.equals("Access your account"),false);
+        assertEquals(false,!string.equals("Access your account"));
     }
 }
